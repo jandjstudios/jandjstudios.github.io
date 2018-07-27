@@ -1,0 +1,13 @@
+# main links
+main:
+  - title: "products"
+    url: /products
+  - title: "datum"
+    url: /datum
+  - title: "about"
+    url: /about
+  #   url: /year-archive/
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
+  # - title: "Sitemap"
+  #   url: /sitemap/
