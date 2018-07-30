@@ -8,10 +8,10 @@
             {% if link.url contains 'http' %}
               {% assign domain = '' %}
             {% else %}
-              {% assign domain = site.url | append: site.baseurl %}
+              {% assign domain = '' %}
             {% endif %}
             <li class="masthead__menu-item">
-              <a href="{{ link.url }}" {% if link.description %}title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
+              <a href="{{ domain }}{{ link.url }}" {% if link.description %}title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
             </li>
           {% endfor %}
         </ul>
