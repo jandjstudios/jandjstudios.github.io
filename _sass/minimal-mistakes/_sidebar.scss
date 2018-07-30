@@ -126,7 +126,7 @@
 
     @include breakpoint($large) {
       padding: 5px;
-      border: 1px solid $border-color;
+      border: 1px none $border-color;
     }
   }
 }
@@ -236,7 +236,7 @@
     top: -11px;
     left: calc(50% - 10px);
     width: 0;
-    border-style: solid;
+    border-style: none;
     border-width: 0 10px 10px;
     border-color: $border-color transparent;
     z-index: 0;
@@ -253,7 +253,7 @@
     top: -10px;
     left: calc(50% - 10px);
     width: 0;
-    border-style: solid;
+    border-style: none;
     border-width: 0 10px 10px;
     border-color: $background-color transparent;
     z-index: 1;

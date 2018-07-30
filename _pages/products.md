@@ -1,15 +1,32 @@
 ---
+#title: "Products"
+layout: archive
 permalink: /products/
-title: "Products"
 excerpt: "Current products offered by J&J Studios"
 last_modified_at: 2018-06-04T12:04:24-04:00
 toc: false
-sidebar: true
+sidebar: false
+feature_row:
+  - image_path: /assets/images/datum-Distance.jpg
+    alt: "datum-Distance"
+    title: "datum-Distance"
+    excerpt: "Coming soon!"
+    #url: /datum/datum-Distance
+  - image_path: /assets/images/datum-IMU.jpg
+    alt: "datum-IMU"
+    title: "datum-IMU"
+    excerpt: "Coming soon!"
+    #url: /datum/datum-IMU
+  - image_path: /assets/images/datum-Light.jpg
+    alt: "datum-Light"
+    title: "datum-Light"
+    excerpt: "Coming soon!"
+    #url: /datum/datum-Light
+  - image_path: /assets/images/datum-Weather.jpg
+    alt: "datum-Weather"
+    title: "datum-Weather"
+    excerpt: "Breaking the barrier between a LEGO&reg; Mindstorms&reg; sensor and a breakout board."              
+    url: /datum/datum-Weather
 ---
-{% for datum in site.datum %}
-  <a href="/datum/{{datum.title}}">
-    <img src="/assets/images/{{datum.title}}.jpg" alt="{{datum.title}}"
-    style="width:175;height:100px;">
-  </a>
-  <a href="/datum/{{datum.title}}">{{datum.title}}</a>
-{% endfor %}
+
+{% include feature_row %}

@@ -29,7 +29,7 @@
 
 
 
-  <meta property="article:published_time" content="2018-07-27T16:28:28-07:00">
+  <meta property="article:published_time" content="2018-07-29T17:48:39-07:00">
 
 
 
@@ -117,8 +117,13 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <a class="site-title" href="/">J&J Studios</a>
+        <a class="site-title" href="http://localhost:4000/"><img src="/assets/images/J&J Studios LLC Logo-1211x1211.png" width=75 height=75></a>
         <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="http://localhost:4000/blog" >blog</a>
+            </li>
           
             
             <li class="masthead__menu-item">
@@ -157,102 +162,17 @@
   
   <div class="sidebar sticky">
   
-
-
-<div itemscope itemtype="http://schema.org/Person">
-
   
-    <div class="author__avatar">
-      
-
-      
-        <img src="/assets/images/J&J%20Studios%20LLC%20Logo-1211x955.png" alt="J&J Studios" itemprop="image">
-      
-    </div>
-  
-
-  <div class="author__content">
     
-      <h3 class="author__name" itemprop="name">J&J Studios</h3>
-    
-    
-      <p class="author__bio" itemprop="description">
-        Bridging the gap between a Mindstorms sensor and a breakout board.
-      </p>
-    
-  </div>
-
-  <div class="author__urls-wrapper">
-    <button class="btn btn--inverse">Follow</button>
-    <ul class="author__urls social-icons">
       
-        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
-          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seattle, WA</span>
-        </li>
+        <img src=
+        
+          "/assets/images/datumLogo.png"
+        
+        alt="datumLogo">
       
-
       
-
       
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      
-
-      <!--
-  <li>
-    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
-      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
-    </a>
-  </li>
--->
-    </ul>
-  </div>
-</div>
-
-  
     
     
   
@@ -284,7 +204,7 @@
 <hr />
 <p>The goal of this project is to make it easier for students and hobbyists to incorporate sensors into their projects by doing the heavy lifting of translating the language the sensors speak into a format that’s easy for humans to read and for machines to parse and process.</p>
 
-<p>Towards that end each datum board emulates a serial port over a USB connection, presents the information and data stored on them in a JSON encapsulated packet, and processes URI style commands to change and retrieve their settings.  The datum boards fill the gap between a LEGO Mindstorms sensor and a breakout board.</p>
+<p>Towards that end each datum board emulates a serial port over a USB connection, presents the information and data stored on them in a JSON encapsulated packet, and processes URI style commands to change and retrieve their settings.  The datum boards fill the gap between a LEGO® Mindstorms® sensor and a breakout board.</p>
 
 <h2 id="hardware-structure">Hardware Structure</h2>
 
@@ -318,21 +238,21 @@
 
 <p>Commands are sent using a URI style syntax similar to that used for REST requests.  The response to every command is prefaced by an http response code indicating if a valid command was sent.  Commands must also be terminated with a carriage return and an optional line feed.</p>
 
-<p>Requests for information start with a ‘get’ command followed by the path to the information requested.  A command of ‘get /‘ will retrieve all the information in the hierarchy.  The command ‘get /device’ will retrieve the parameters underneath the top level device category.  The command ‘get /device/manufacturer’ will retrieve that specific parameter.</p>
+<p>Requests for information start with a <code class="highlighter-rouge">get</code> command followed by the path to the information requested.  A command of <code class="highlighter-rouge">get /</code> will retrieve all the information in the hierarchy.  The command <code class="highlighter-rouge">get /device</code> will retrieve the parameters underneath the top level device category.  The command <code class="highlighter-rouge">get /device/manufacturer</code> will retrieve that specific parameter.</p>
 
-<p>Information from sensors can be collected individually from each sensor but it can also be collected from all the sensors at the same time.  A command like ‘get /sensors/sensor1/device’ would retrieve the device parameters from sensor1.  A command like get /sensors/device’ would retrieve the device parameters from all the sensors supported by that particular board.</p>
+<p>Information from sensors can be collected individually from each sensor but it can also be collected from all the sensors at the same time.  A command like <code class="highlighter-rouge">get /sensors/sensor1/device</code> would retrieve the device parameters from sensor1.  A command like<code class="highlighter-rouge">get /sensors/device</code> would retrieve the device parameters from all the sensors supported by that particular board.</p>
 
-<p>Similarly config settings can be changed using either ‘set’, ‘put’, or ‘patch’.  Patch is the most technically correct but any of the terms work equally well.  A typical command to change the report rate would be ‘set /config?reportRate=10’.  This follows the URI style syntax of using a ‘?’ to separate the resource category from the parameters being changed.  An equal signs is used to indicate the new value for a particular parameter.</p>
+<p>Similarly config settings can be changed using either <code class="highlighter-rouge">set</code>, <code class="highlighter-rouge">put</code>, or <code class="highlighter-rouge">patch</code>.  Patch is the most technically correct but any of the terms work equally well.  A typical command to change the report rate would be <code class="highlighter-rouge">set /config?reportRate=10</code>.  This follows the URI style syntax of using a <code class="highlighter-rouge">?</code> to separate the resource category from the parameters being changed.  An equal signs is used to indicate the new value for a particular parameter.</p>
 
 <p>Multiple commands may be sent with one set command as well.  Multiple commands are separated with the ‘&amp;’ symbol.  All the new settings must be in the same high level category.  The following command would set the report rate to 10 and enable automatic reporting:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set /config?reportRate=10&amp;automaticReporting=true.
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">set</span><span class="w"> </span><span class="err">/config?reportRate=</span><span class="mi">10</span><span class="err">&amp;automaticReporting=</span><span class="kc">true</span><span class="err">.</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Sensor config values may be set individually or en mass similar to the operation of the get command.  Changing the sample rate and data rate of all sensors on a board can be accomplished with the following command:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set /sensors/config?sampleRate=10&amp;dataRate=5
-</code></pre></div></div>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">set</span><span class="w"> </span><span class="err">/sensors/config?sampleRate=</span><span class="mi">10</span><span class="err">&amp;dataRate=</span><span class="mi">5</span><span class="w">
+</span></code></pre></div></div>
 
 <p>Commands can also be abbreviated.  This is a departure from the URI standard syntax but it greatly eases testing and debugging.  This is particularly true when commands are being entered manually.  Commands can be shortened to as few as one character.  Care must be taken with parameters that start with the same letters.  Enough characters must be provided to clearly distinguish which parameter is being changed or unexpected results could occur.</p>
 
@@ -392,7 +312,7 @@
 
 <h2 id="prototypes">Prototypes</h2>
 
-<p>There are four prototype boards currently available, datum-Distance, datum-IMU, datum-Light, and datum-Weather.  Each prototype features a different chip using their own unique communication interface and language.  They are meant to showcase the capabilities of each chip while highlighting the common command structure and format for reporting the information collected.</p>
+<p>There are four boards coming soon, datum-Distance, datum-IMU, datum-Light, and datum-Weather.  Each board features a different chip using their own unique communication interface and language.  They are meant to showcase the capabilities of each chip while highlighting the common command structure and format for reporting the information collected.</p>
 
         
       </section>

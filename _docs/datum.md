@@ -1,11 +1,12 @@
 ---
 title: datum
 layout: single
-author_profile: true
 permalink: "/datum/"
 excerpt: Detailed information about the datum product line.
 last_modified_at: '2018-06-04 09:04:24 -0700'
-sidebar: true
+sidebar:
+  - image: /assets/images/datumLogo.png
+    image_alt: "datumLogo"
 ---
 
 1. a piece of information
@@ -14,7 +15,7 @@ sidebar: true
 ---
 The goal of this project is to make it easier for students and hobbyists to incorporate sensors into their projects by doing the heavy lifting of translating the language the sensors speak into a format that’s easy for humans to read and for machines to parse and process.  
 
-Towards that end each datum board emulates a serial port over a USB connection, presents the information and data stored on them in a JSON encapsulated packet, and processes URI style commands to change and retrieve their settings.  The datum boards fill the gap between a LEGO Mindstorms sensor and a breakout board.
+Towards that end each datum board emulates a serial port over a USB connection, presents the information and data stored on them in a JSON encapsulated packet, and processes URI style commands to change and retrieve their settings.  The datum boards fill the gap between a LEGO&reg; Mindstorms&reg; sensor and a breakout board.
 
 ## Hardware Structure
 
@@ -26,7 +27,7 @@ This means that each datum board can be used on nearly any platform or with any 
 
 Information about a particular board is stored in various parameters organized into several higher level categories.  The high level categories include device, config, options, and sensors.  An example of the structure is shown below.
 
-```json
+``` json
 {
   "device": {},
   "config": {},
@@ -49,21 +50,21 @@ The sensors category contains more detailed information about individual sensors
 
 Commands are sent using a URI style syntax similar to that used for REST requests.  The response to every command is prefaced by an http response code indicating if a valid command was sent.  Commands must also be terminated with a carriage return and an optional line feed.
 
-Requests for information start with a ‘get’ command followed by the path to the information requested.  A command of ‘get /‘ will retrieve all the information in the hierarchy.  The command ‘get /device’ will retrieve the parameters underneath the top level device category.  The command ‘get /device/manufacturer’ will retrieve that specific parameter.
+Requests for information start with a `get` command followed by the path to the information requested.  A command of `get /` will retrieve all the information in the hierarchy.  The command `get /device` will retrieve the parameters underneath the top level device category.  The command `get /device/manufacturer` will retrieve that specific parameter.
 
-Information from sensors can be collected individually from each sensor but it can also be collected from all the sensors at the same time.  A command like ‘get /sensors/sensor1/device’ would retrieve the device parameters from sensor1.  A command like get /sensors/device’ would retrieve the device parameters from all the sensors supported by that particular board.
+Information from sensors can be collected individually from each sensor but it can also be collected from all the sensors at the same time.  A command like `get /sensors/sensor1/device` would retrieve the device parameters from sensor1.  A command like`get /sensors/device` would retrieve the device parameters from all the sensors supported by that particular board.
 
-Similarly config settings can be changed using either ‘set’, ‘put’, or ‘patch’.  Patch is the most technically correct but any of the terms work equally well.  A typical command to change the report rate would be ‘set /config?reportRate=10’.  This follows the URI style syntax of using a ‘?’ to separate the resource category from the parameters being changed.  An equal signs is used to indicate the new value for a particular parameter.
+Similarly config settings can be changed using either `set`, `put`, or `patch`.  Patch is the most technically correct but any of the terms work equally well.  A typical command to change the report rate would be `set /config?reportRate=10`.  This follows the URI style syntax of using a `?` to separate the resource category from the parameters being changed.  An equal signs is used to indicate the new value for a particular parameter.
 
 Multiple commands may be sent with one set command as well.  Multiple commands are separated with the ‘&’ symbol.  All the new settings must be in the same high level category.  The following command would set the report rate to 10 and enable automatic reporting:
 
-```
+``` json
 set /config?reportRate=10&automaticReporting=true.
 ```
 
 Sensor config values may be set individually or en mass similar to the operation of the get command.  Changing the sample rate and data rate of all sensors on a board can be accomplished with the following command:
 
-```
+``` json
 set /sensors/config?sampleRate=10&dataRate=5
 ```
 
@@ -115,4 +116,4 @@ The third step is reporting the data stored in the data ring buffer to the host 
 
 ## Prototypes
 
-There are four prototype boards currently available, datum-Distance, datum-IMU, datum-Light, and datum-Weather.  Each prototype features a different chip using their own unique communication interface and language.  They are meant to showcase the capabilities of each chip while highlighting the common command structure and format for reporting the information collected.
+There are four boards coming soon, datum-Distance, datum-IMU, datum-Light, and datum-Weather.  Each board features a different chip using their own unique communication interface and language.  They are meant to showcase the capabilities of each chip while highlighting the common command structure and format for reporting the information collected.
