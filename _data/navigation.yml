@@ -1,10 +1,10 @@
 # main links
 main:
   - title: "blog"
-    url: /blog
+    url: /blog/
   - title: "products"
-    url: /products
+    url: /products/
   - title: "datum"
-    url: /datum
+    url: /datum/
   - title: "about"
-    url: /about
+    url: /about/
