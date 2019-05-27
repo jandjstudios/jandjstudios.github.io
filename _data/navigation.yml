@@ -8,3 +8,8 @@ main:
     url: /datum/
   - title: "about"
     url: /about/
+
+weatherInfo:
+  - title: More information
+
+

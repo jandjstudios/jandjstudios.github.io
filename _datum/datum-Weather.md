@@ -4,14 +4,13 @@ title: ""
 header:
   #image: /assets/images/datum-Weather-small.jpg
   #teaser: /assets/images/foo-bar-identity-th.jpg
+
 sidebar:
-  - #title: "datum-Weather"
+  #- title: "datum-Weather"
   - image: /assets/images/datum-Weather-small.jpg
     image_alt: "[datum-Weather](/assets/images/datum-Weather.jpg)"
+    nav: weatherInfo
     #text: "datum-Weather"
-  #- title: "More Information"
-  #- title: "schematic"
-  #  text: "[schematic](/assets/images/datum-Weather.jpg)"
   #- title: "firmware"
 
 ---
