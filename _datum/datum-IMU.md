@@ -1,23 +1,21 @@
 ---
-title: "datum-IMU"
-excerpt: "Foo Bar design system including logo mark, website design, and branding applications."
+title: ""
+#excerpt: "Foo Bar design system including logo mark, website design, and branding applications."
 header:
-  #image: /assets/images/foo-bar-identity.jpg
+  #image: /assets/images/datum-Distance-small.jpg
   #teaser: /assets/images/foo-bar-identity-th.jpg
+
 sidebar:
-  - title: "datum-Distance"
-    image: /assets/images/datum-Distance.jpg
-    image_alt: "datum-Distance"
-    text: "Designer, Front-End Developer"
-  - title: "Responsibilities"
-    text: "Reuters try PR stupid commenters should isn't a business model"
-gallery:
-  - url: /assets/images/datum-Distance.jpg
-    image_path: assets/images/datum-Distance.jpg
-    alt: "placeholder image 1"
-  - url: /assets/images/datum-Weather.jpg
-    image_path: assets/images/datum-Weather.jpg
-    alt: "placeholder image 2"
+  #- title: "datum-Distance"
+  - image: /assets/images/datum-Distance-small.jpg
+    image_alt: "[datum-Distance](/assets/images/datum-Distance.jpg)"
+    nav: distanceInfo
+    #text: "datum-Distance"
+  #- title: "firmware"
+
+---
+![alt text](/assets/images/datumLogo-small.png "J&J Studios LLC")  datum-Weather
+
 ---
 ***
 - **datum**

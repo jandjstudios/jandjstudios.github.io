@@ -7,4 +7,13 @@ main:
   - title: "datum"
     url: /datum/
   - title: "about"
+<<<<<<< HEAD
     url: /about/
+=======
+    url: /about/
+
+weatherInfo:
+  - title: More information
+
+
+>>>>>>> decf138a90d9f16ab9be12b8422fad705bf24974

@@ -1,17 +1,21 @@
 ---
-title: "datum-Distance"
-excerpt: "Foo Bar design system including logo mark, website design, and branding applications."
+title: ""
+#excerpt: "Foo Bar design system including logo mark, website design, and branding applications."
 header:
-  #image: /assets/images/foo-bar-identity.jpg
+  #image: /assets/images/datum-Distance-small.jpg
   #teaser: /assets/images/foo-bar-identity-th.jpg
+
 sidebar:
-  - title: "datum-Distance"
-    image: /assets/images/datum-Distance.jpg
-    image_alt: "datum-Distance"
-    text: "Designer, Front-End Developer"
-  - title: "More Information"
-    text: "[schematic](/assets/pdfs/datum-Distance.pdf)"
-#toc: true
+  #- title: "datum-Distance"
+  - image: /assets/images/datum-Distance-small.jpg
+    image_alt: "[datum-Distance](/assets/images/datum-Distance.jpg)"
+    nav: distanceInfo
+    #text: "datum-Distance"
+  #- title: "firmware"
+
+---
+![alt text](/assets/images/datumLogo-small.png "J&J Studios LLC")  datum-Weather
+
 ---
 ***
 - **datum**
@@ -32,7 +36,7 @@ sidebar:
 
 ---
 
-The datum-Distance sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the RFD77402 ToF distance sensor from RF Digital to create the simplest, easiest to use distance sensor for your application.
+The datum-Distance sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the VL53LX1 distance sensor from ST Microelectronics to create the simplest, easiest to use distance sensor for your application.
 
 The datum-Distance sensor emulates a serial port over a USB connection, presents the information and data stored on it in a JSON formatted packet, and processes URI style commands to change and retrieve its settings. The datum-Distance sensor fills the gap between a LEGO&reg; Mindstorms&reg; sensor and a breakout board.
 
