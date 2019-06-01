@@ -1,31 +1,31 @@
 var store = [{
-        "title": "datum-Distance",
-        "excerpt":"datum a piece of information a fixed starting point of a scale or operation distance an amount of space between two things or people Features URI style command interface JSON formatted data packets Onboard EEPROM stores settings Globally unique 64 bit UUID Mounting holes in all four corners 1.0” x...","categories": [],
+        "title": "",
+        "excerpt":"datum-Distance URI command syntax. JSON encapsulated data packets. The ideal distance sensor for your next IoT project. The datum-Distance sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the VL53LX1 distance sensor from ST Microelectronics to create the simplest, easiest to use distance sensor for your application....","categories": [],
         "tags": [],
-        "url": "jandjstudios.io/datum/datum-Distance/",
+        "url": "http://localhost:4000/datum/datum-Distance/",
         "teaser":null},{
         "title": "datum-IMU",
-        "excerpt":"datum a piece of information a fixed starting point of a scale or operation distance an amount of space between two things or people The datum-Distance sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the RFD77402 ToF distance sensor from RF Digital to create the simplest,...","categories": [],
+        "excerpt":"URI command syntax. JSON encapsulated data packets. The ideal IMU for your next IoT project. The datum-IMU sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the LSM9DS1 IMU sensor from ST Microelectronics to create the simplest, easiest to use IMU sensor for your application. The datum-IMU...","categories": [],
         "tags": [],
-        "url": "jandjstudios.io/datum/datum-IMU/",
+        "url": "http://localhost:4000/datum/datum-IMU/",
         "teaser":null},{
         "title": "datum-Light",
-        "excerpt":"datum a piece of information a fixed starting point of a scale or operation distance an amount of space between two things or people The datum-Distance sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the RFD77402 ToF distance sensor from RF Digital to create the simplest,...","categories": [],
+        "excerpt":"URI command syntax. JSON encapsulated data packets. The ideal light sensor for your next IoT project. The datum-Light sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the APDS-9960 light sensor from Broadcom to create the simplest, easiest to use light sensor for your application. The datum-Light...","categories": [],
         "tags": [],
-        "url": "jandjstudios.io/datum/datum-Light/",
+        "url": "http://localhost:4000/datum/datum-Light/",
         "teaser":null},{
         "title": "",
-        "excerpt":"datum-Weather datum a piece of information a fixed starting point of a scale or operationweather the state of the atmosphere at a place and time as regards heat, dryness, sunshine, wind, rain, etc.features Atmel SAMD21G18 microcontroller Bosch Sensortec BME280 environmental sensor Onboard EEPROM settings storage URI style command interface JSON...","categories": [],
+        "excerpt":"URI command syntax. JSON encapsulated data packets. The ideal weather sensor for your next IoT project. The datum-Weather sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the BME280 environmental sensor from Bosch Sensortec to create the simplest, easiest to use weather sensor for your application. The...","categories": [],
         "tags": [],
-        "url": "jandjstudios.io/datum/datum-Weather/",
+        "url": "http://localhost:4000/datum/datum-Weather/",
         "teaser":null},{
         "title": "datum",
         "excerpt":"a piece of information a fixed starting point of a scale or operationThe goal of this project is to make it easier for students and hobbyists to incorporate sensors into their projects by doing the heavy lifting of translating the language the sensors speak into a format that’s easy for...","categories": [],
         "tags": [],
-        "url": "jandjstudios.io/datum/",
+        "url": "http://localhost:4000/datum/",
         "teaser":null},{
         "title": "Coming soon, datum-Weather!",
         "excerpt":"The first product in the datum series will be coming to GroupGets soon! ","categories": [],
         "tags": [],
-        "url": "jandjstudios.io/datum-Weather/",
+        "url": "http://localhost:4000/datum-Weather/",
         "teaser":null}]
