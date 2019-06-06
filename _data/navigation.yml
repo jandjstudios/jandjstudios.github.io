@@ -1,5 +1,7 @@
 # main links
 main:
+  - title: "home"
+    url: /home/
   - title: "blog"
     url: /blog/
   - title: "products"
@@ -7,13 +9,25 @@ main:
   - title: "datum"
     url: /datum/
   - title: "about"
-<<<<<<< HEAD
     url: /about/
-=======
-    url: /about/
+
+distanceInfo:
+  - title: "schematic"
+    url: /assets/pdfs/datum-Distance.pdf
 
 weatherInfo:
-  - title: More information
+  - title: "More informationasdf"
+    children:
+      - title: "schematic"
+        url: /assets/pdfs/datum-Distance.pdf
+
+foo:
+  - title: "Parent Link 1"
+    url: /parent-1-page-url/
+    children:
+      - title: "Child Link 1"
+        url: /child-1-page-url/
+      - title: "Child Link 2"
+        url: /child-2-page-url/
 
 
->>>>>>> decf138a90d9f16ab9be12b8422fad705bf24974

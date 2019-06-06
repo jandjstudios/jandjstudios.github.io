@@ -9,30 +9,25 @@ sidebar:
   #- title: "datum-Weather"
   - image: /assets/images/datum-Weather/datum-Weather Top.jpg
     image_alt: "[datum-Weather](/assets/images/datum-Weather/datum-Weather-small.jpg)"
-    nav: weatherInfo
-    text: "### datum-Weather"
+    nav: "weatherInfo"
+    #text: "### datum-Weather"
   #- title: "firmware"
 
+toc: true
 ---
-
-URI command syntax. JSON encapsulated data packets. The ideal weather sensor for your next IoT project.
-
-The datum-Weather sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the BME280 environmental sensor from Bosch Sensortec to create the simplest, easiest to use weather sensor for your application.
-
-The datum-Weather sensor emulates a serial port over a USB connection, presents the information and data stored on it in a JSON formatted packet, and processes URI style commands to change and retrieve its settings. The datum-Weather sensor fills the gap between a LEGO&reg; Mindstorms&reg; sensor and a breakout board.
-
-![alt text](/assets/images/datumLogo-small.png "J&J Studios LLC")  **datum-Weather**
+![alt text](/assets/images/datumLogo-small.png) datum-Weather
+===  
 
 ---
-#### **datum**
+- **datum**
    1. a piece of information
    1. a fixed starting point of a scale or operation
 
-#### **weather**
+- **weather**
    1. the state of the atmosphere at a place and time as regards heat, dryness, sunshine, wind, rain, etc.
 
 ---
-#### **features**
+**features**
   - Atmel SAMD21G18 microcontroller
   - Bosch Sensortec BME280 environmental sensor
   - Onboard EEPROM settings storage
@@ -41,6 +36,14 @@ The datum-Weather sensor emulates a serial port over a USB connection, presents 
   - Globally unique 64 bit UUID
   - Mounting holes in all four corners
   - 1.0" x 1.75" (25.4 cm x 44.4 cm)
+
+---
+
+URI command syntax. JSON encapsulated data packets. The ideal weather sensor for your next IoT or robotics project.
+
+The datum-Weather sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the BME280 environmental sensor from Bosch Sensortec to create the simplest, easiest to use weather sensor for your application.
+
+The datum-Weather sensor emulates a serial port over a USB connection, presents the information and data stored on it in a JSON formatted packet, and processes URI style commands to change and retrieve its settings. The datum-Weather sensor fills the gap between a LEGO&reg; Mindstorms&reg; sensor and a breakout board.
 
   Control the behavior of the sensor by using URI style commands right from your favorite terminal program.  Want to set the report rate to 10 Hz and send the reports automatically?  The following command does just that.
 

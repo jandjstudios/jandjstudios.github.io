@@ -1,5 +1,5 @@
 ---
-title: "datum-Light"
+title: ""
 excerpt: "Foo Bar design system including logo mark, website design, and branding applications."
 header:
   #image: /assets/images/foo-bar-identity.jpg
@@ -8,19 +8,15 @@ sidebar:
   #- title: "datum-Light"
   - image: /assets/images/datum-Light/datum-Light Top.jpg
     image_alt: "datum-Light"
-    text: "Designer, Front-End Developer"
+    #text: "Designer, Front-End Developer"
   - title: "More Information"
     text: "[schematic](/assets/pdfs/datum-Light.pdf)"
 #toc: true
 ---
+![alt text](/assets/images/datumLogo-small.png) datum-Light
+===  
 
-URI command syntax. JSON encapsulated data packets. The ideal light sensor for your next IoT project.
-
-The datum-Light sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the APDS-9960 light sensor from Broadcom to create the simplest, easiest to use light sensor for your application.
-
-The datum-Light sensor emulates a serial port over a USB connection, presents the information and data stored on it in a JSON formatted packet, and processes URI style commands to change and retrieve its settings. The datum-Light sensor fills the gap between a LEGO&reg; Mindstorms&reg; sensor and a breakout board.
-
-***
+---
 - **datum**
    1. a piece of information
    1. a fixed starting point of a scale or operation
@@ -40,6 +36,11 @@ The datum-Light sensor emulates a serial port over a USB connection, presents th
   - 1.0" x 1.75" (25.4 cm x 44.4 cm)
 
 ---
+URI command syntax. JSON encapsulated data packets. The ideal light sensor for your next IoT or robotics project.
+
+The datum-Light sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the APDS-9960 light sensor from Broadcom to create the simplest, easiest to use light sensor for your application.
+
+The datum-Light sensor emulates a serial port over a USB connection, presents the information and data stored on it in a JSON formatted packet, and processes URI style commands to change and retrieve its settings. The datum-Light sensor fills the gap between a LEGO&reg; Mindstorms&reg; sensor and a breakout board.
 
 Control the behavior of the sensor by using URI style commands right from your favorite terminal program.  Want to set the report rate to 10 Hz and send the reports automatically?  The following command does just that.
 

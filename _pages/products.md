@@ -1,13 +1,13 @@
 ---
 #title: "Products"
-layout: archive
+layout: single
 permalink: /products/
 excerpt: "Current products offered by J&J Studios"
 last_modified_at: 2018-06-04T12:04:24-04:00
 toc: false
 sidebar: false
-feature_row:
-  - image_path: /assets/images/datum-Distance/datum-Distance Top.jpg/350x250
+feature_row1:
+  - image_path: /assets/images/datum-Distance/datum-Distance Top.jpg
     alt: "datum-Distance"
     title: "datum-Distance"
     excerpt: "Coming soon!"
@@ -27,8 +27,15 @@ feature_row:
     title: "datum-Weather"
     excerpt: "Breaking the barrier between a LEGO&reg; Mindstorms&reg; sensor and a breakout board."              
     url: /datum/datum-Weather
+
 ---
 
-{% include feature_row type="right" %}
+{% include gallery id="feature_row1" caption="This is a sample gallery with **Markdown support**." %}
+
+{% include feature_row type="left" %}
+
+{% include feature_row id="feature_row1" %}
+
+{% include feature_row id="feature_row2" %}
 
 

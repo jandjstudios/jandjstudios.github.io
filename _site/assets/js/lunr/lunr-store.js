@@ -1,21 +1,21 @@
 var store = [{
         "title": "",
-        "excerpt":"datum-Distance URI command syntax. JSON encapsulated data packets. The ideal distance sensor for your next IoT project. The datum-Distance sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the VL53LX1 distance sensor from ST Microelectronics to create the simplest, easiest to use distance sensor for your application....","categories": [],
+        "excerpt":"datum-Distance datum a piece of information a fixed starting point of a scale or operation distance an amount of space between two things or people features Atmel SAMD21G18 microcontroller ST Microelectronics VL53LX1 distance sensor Onboard EEPROM settings storage URI style command interface JSON formatted data packets Globally unique 64 bit...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/datum/datum-Distance/",
         "teaser":null},{
-        "title": "datum-IMU",
-        "excerpt":"URI command syntax. JSON encapsulated data packets. The ideal IMU for your next IoT project. The datum-IMU sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the LSM9DS1 IMU sensor from ST Microelectronics to create the simplest, easiest to use IMU sensor for your application. The datum-IMU...","categories": [],
+        "title": "",
+        "excerpt":"datum-IMU datum a piece of information a fixed starting point of a scale or operation inertia a property of matter by which it continues in its existing state of rest or uniform motion in a straight line, unless that state is changed by an external force features Atmel SAMD21G18 microcontroller...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/datum/datum-IMU/",
         "teaser":null},{
-        "title": "datum-Light",
-        "excerpt":"URI command syntax. JSON encapsulated data packets. The ideal light sensor for your next IoT project. The datum-Light sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the APDS-9960 light sensor from Broadcom to create the simplest, easiest to use light sensor for your application. The datum-Light...","categories": [],
+        "title": "",
+        "excerpt":"datum-Light datum a piece of information a fixed starting point of a scale or operation light the natural agent that stimulates sight and makes things visible features Atmel SAMD21G18 microcontroller Broadcom APDS-9960 light sensor Onboard EEPROM settings storage URI style command interface JSON formatted data packets Globally unique 64 bit...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/datum/datum-Light/",
         "teaser":null},{
         "title": "",
-        "excerpt":"URI command syntax. JSON encapsulated data packets. The ideal weather sensor for your next IoT project. The datum-Weather sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the BME280 environmental sensor from Bosch Sensortec to create the simplest, easiest to use weather sensor for your application. The...","categories": [],
+        "excerpt":"datum-Weather datum a piece of information a fixed starting point of a scale or operation weather the state of the atmosphere at a place and time as regards heat, dryness, sunshine, wind, rain, etc. features Atmel SAMD21G18 microcontroller Bosch Sensortec BME280 environmental sensor Onboard EEPROM settings storage URI style command...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/datum/datum-Weather/",
         "teaser":null},{

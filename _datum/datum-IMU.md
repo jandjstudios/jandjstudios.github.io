@@ -9,19 +9,15 @@ sidebar:
   #- title: "datum-IMU"
   - image: /assets/images/datum-IMU/datum-IMU Top.jpg
     image_alt: "datum-IMU"
-    text: "Designer, Front-End Developer"
+    #text: "Designer, Front-End Developer"
   - title: "More Information"
     text: "[schematic](/assets/pdfs/datum-IMU.pdf)"
 #toc: true
 ---
+![alt text](/assets/images/datumLogo-small.png) datum-IMU
+===  
 
-URI command syntax. JSON encapsulated data packets. The ideal IMU for your next IoT project.
-
-The datum-IMU sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the LSM9DS1 IMU sensor from ST Microelectronics to create the simplest, easiest to use IMU sensor for your application.
-
-The datum-IMU sensor emulates a serial port over a USB connection, presents the information and data stored on it in a JSON formatted packet, and processes URI style commands to change and retrieve its settings. The datum-IMU sensor fills the gap between a LEGO&reg; Mindstorms&reg; sensor and a breakout board.
-
-***
+---
 - **datum**
    1. a piece of information
    1. a fixed starting point of a scale or operation
@@ -30,7 +26,7 @@ The datum-IMU sensor emulates a serial port over a USB connection, presents the 
    1. a property of matter by which it continues in its existing state of rest or uniform motion in a straight line, unless that state is changed by an external force
 
 ---
-## features
+**features**
 
   - Atmel SAMD21G18 microcontroller
   - ST Microelectronics LSM9DS1 IMU
@@ -42,6 +38,12 @@ The datum-IMU sensor emulates a serial port over a USB connection, presents the 
   - 1.0" x 1.75" (25.4 cm x 44.4 cm)
 
 ---
+
+URI command syntax. JSON encapsulated data packets. The ideal IMU for your next IoT or robotics project.
+
+The datum-IMU sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the LSM9DS1 IMU sensor from ST Microelectronics to create the simplest, easiest to use IMU sensor for your application.
+
+The datum-IMU sensor emulates a serial port over a USB connection, presents the information and data stored on it in a JSON formatted packet, and processes URI style commands to change and retrieve its settings. The datum-IMU sensor fills the gap between a LEGO&reg; Mindstorms&reg; sensor and a breakout board.
 
 Control the behavior of the sensor by using URI style commands right from your favorite terminal program.  Want to set the report rate to 10 Hz and send the reports automatically?  The following command does just that.
 

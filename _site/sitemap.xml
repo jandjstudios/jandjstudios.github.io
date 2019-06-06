@@ -2,19 +2,19 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://localhost:4000/datum/datum-Distance/</loc>
-<lastmod>2019-05-31T17:49:55-07:00</lastmod>
+<lastmod>2019-06-01T11:23:14-07:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/datum/datum-IMU/</loc>
-<lastmod>2019-05-31T17:49:55-07:00</lastmod>
+<lastmod>2019-06-01T11:23:14-07:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/datum/datum-Light/</loc>
-<lastmod>2019-05-31T17:49:55-07:00</lastmod>
+<lastmod>2019-06-01T11:23:14-07:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/datum/datum-Weather/</loc>
-<lastmod>2019-05-31T17:49:55-07:00</lastmod>
+<lastmod>2019-06-01T11:23:14-07:00</lastmod>
 </url>
 <url>
 <loc>http://localhost:4000/datum/</loc>
@@ -33,7 +33,7 @@
 <lastmod>2018-06-04T09:04:24-07:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/</loc>
+<loc>http://localhost:4000/home/</loc>
 <lastmod>2018-06-04T09:04:24-07:00</lastmod>
 </url>
 <url>
