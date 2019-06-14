@@ -15,7 +15,9 @@ sidebar:
 #toc: true
 ---
 ![alt text](/assets/images/datumLogo-small.png) datum-IMU
-===  
+==  
+
+URI command syntax. JSON encapsulated data packets. The ideal IMU for your next IoT or robotics project.
 
 ---
 - **datum**
@@ -39,8 +41,6 @@ sidebar:
   - 1.0" x 1.75" (25.4 cm x 44.4 cm)
 
 ---
-
-URI command syntax. JSON encapsulated data packets. The ideal IMU for your next IoT or robotics project.
 
 The datum-IMU sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the LSM9DS1 IMU sensor from ST Microelectronics to create the simplest, easiest to use IMU sensor for your application.
 

@@ -14,7 +14,9 @@ sidebar:
 
 ---
 ![alt text](/assets/images/datumLogo-small.png) datum-Distance
-===  
+==
+
+URI command syntax. JSON encapsulated data packets. The ideal distance sensor for your next IoT or robotics project.
 
 ---
 - **datum**
@@ -37,8 +39,6 @@ sidebar:
   - 1.0" x 1.75" (25.4 cm x 44.4 cm)
 
 ---
-
-URI command syntax. JSON encapsulated data packets. The ideal distance sensor for your next IoT or robotics project.
 
 The datum-Distance sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the VL53LX1 distance sensor from ST Microelectronics to create the simplest, easiest to use distance sensor for your application.
 

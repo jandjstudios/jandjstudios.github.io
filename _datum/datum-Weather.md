@@ -16,7 +16,9 @@ sidebar:
 toc: true
 ---
 ![alt text](/assets/images/datumLogo-small.png) datum-Weather
-===  
+==  
+
+URI command syntax. JSON encapsulated data packets. The ideal weather sensor for your next IoT or robotics project.
 
 ---
 - **datum**
@@ -39,8 +41,6 @@ toc: true
   - 1.0" x 1.75" (25.4 cm x 44.4 cm)
 
 ---
-
-URI command syntax. JSON encapsulated data packets. The ideal weather sensor for your next IoT or robotics project.
 
 The datum-Weather sensor combines the same SAMD21G18 microcontroller used on the Arduino Zero with the BME280 environmental sensor from Bosch Sensortec to create the simplest, easiest to use weather sensor for your application.
 
