@@ -93,8 +93,8 @@ The datum-Weather sensor emulates a serial port over a USB connection, presents 
 
   It can also apply filters such as min, mix, mean, and RMS to the data stream.  This truly makes the datum-Weather sensor a smart sensor that goes far beyond what a breakout board can do.  The datum-Weather sensor is also programmed with an Arduino compatible bootloader allowing full customization of the firmware.
 
-  ![alt text](/assets/images/datum-Weather/datum-Weather-Data1.png "J&J Studios ")
-  ![alt text](/assets/images/datum-Weather/datum-Weather-Data2.png "J&J Studios ")
+  ![alt text](/assets/images/datum-Weather/datum-Weather-Data1.png)
+  ![alt text](/assets/images/datum-Weather/datum-Weather-Data2.png)
 
 
   The datum-Weather sensor is just one of four sensors in the datum line currently available.  The other sensors, datum-Light, datum-Distance, and datum-IMU all feature the same easy to use, text based interface.  More information on the full spectrum of sensors is available [here](/datum/).

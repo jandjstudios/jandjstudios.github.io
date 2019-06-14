@@ -84,7 +84,7 @@ The datum-IMU sensor can do much more than just collect the data.  The measureme
 It can also apply filters such as min, mix, mean, and RMS to the data stream.  This truly makes the datum-IMU sensor a smart sensor that goes far beyond what a breakout board can do.  The datum-IMU sensor is also programmed with an Arduino compatible bootloader allowing full customization of the firmware.
 
 
-![alt text](/assets/images/datum-IMU/datum-IMU-Data1.png "J&J Studios ")
-![alt text](/assets/images/datum-IMU/datum-IMU-Data2.png "J&J Studios ")
+![alt text](/assets/images/datum-IMU/datum-IMU-Data1.png)
+![alt text](/assets/images/datum-IMU/datum-IMU-Data2.png)
 
 The datum-IMU sensor is just one of four sensors in the datum line currently available.  The other sensors, datum-Weather, datum-Light, and datum-IMU all feature the same easy to use, text based interface.  More information on the full spectrum of sensors is available [here](https://jandjstudios.github.io/datasheets/datumInformation.pdf).
