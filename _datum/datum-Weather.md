@@ -18,7 +18,8 @@ toc: true
 ![alt text](/assets/images/datumLogo-small.png) datum-Weather
 ==  
 
-URI command syntax. JSON encapsulated data packets. The ideal weather sensor for your next IoT or robotics project.
+URI command syntax. JSON encapsulated data packets. 
+The ideal weather sensor for your next IoT or robotics project.
 
 ---
 - **datum**

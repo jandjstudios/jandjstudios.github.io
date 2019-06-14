@@ -16,7 +16,8 @@ sidebar:
 ![alt text](/assets/images/datumLogo-small.png) datum-Light
 ==  
 
-URI command syntax. JSON encapsulated data packets. The ideal light sensor for your next IoT or robotics project.
+URI command syntax. JSON encapsulated data packets. 
+The ideal light sensor for your next IoT or robotics project.
 
 ---
 - **datum**
@@ -56,11 +57,22 @@ Not sure what the settings for the datum-Light sensor were?  The following comma
 get /sensor/light/config
 
 {
-  "light": {
+  "color": {
     "enabled": true,
-    "units": "mm",
-    "filterType": "none",
-    "sampleRate": 10,
+    "units": "counts",
+    "gain": 16,
+    "integrationCycles": 64,
+    "filterType": "mean",
+    "sampleRate": 20,
+    "dataRate": 10
+  },
+  "proximity": {
+    "enabled": true,
+    "units": "counts",
+    "gain": 1,
+    "LEDstrength": "25 mA",
+    "filterType": "mean",
+    "sampleRate": 20,
     "dataRate": 10
   }
 }
@@ -70,13 +82,21 @@ The data from the datum-Light sensor is also encapsulated in a JSON formatted pa
 
 ```json
 {
-  "timestamp": 18785.05,
-  "light": {
-    "time": [18779.6, 18780.6, 18781.6, 18782.6],
-    "z": [1888, 1855, 1988, 1556]
+  "timestamp": 84.804,
+  "color": {
+    "time": [84.675, 84.775],
+    "ambient": [40, 40],
+    "red": [19, 19],
+    "green": [19, 19],
+    "blue": [18, 18]
+  },
+  "proximity": {
+    "time": [84.678, 84.778],
+    "proximity": [7, 7]
   }
 }
 ```
+
 
 The datum-Light sensor can do much more than just collect the data.  The measurement units can be customized to suit your application.  light data can be returned in mm, cm, inches, or feet.  The datum-Light sensor does all the calculations for you.
 

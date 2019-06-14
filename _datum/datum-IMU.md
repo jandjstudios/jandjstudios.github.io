@@ -17,7 +17,8 @@ sidebar:
 ![alt text](/assets/images/datumLogo-small.png) datum-IMU
 ==  
 
-URI command syntax. JSON encapsulated data packets. The ideal IMU for your next IoT or robotics project.
+URI command syntax. JSON encapsulated data packets. 
+The ideal IMU for your next IoT or robotics project.
 
 ---
 - **datum**
@@ -55,27 +56,59 @@ set /config?reportRate=10&automaticReporting=true
 Not sure what the settings for the datum-IMU sensor were?  The following command will retrieve them in a JSON formatted data packet.
 
 ```json
-get /sensor/IMU/config
+get /sensor/config
 
 {
-  "IMU": {
+  "accelerometer": {
     "enabled": true,
-    "units": "mm",
-    "filterType": "none",
-    "sampleRate": 10,
+    "units": "g",
+    "range": "2 g",
+    "filterType": "mean",
+    "sampleRate": 50,
+    "dataRate": 10
+  },
+  "gyro": {
+    "enabled": true,
+    "units": "dps",
+    "range": "245 dps",
+    "filterType": "mean",
+    "sampleRate": 59.5,
+    "dataRate": 10
+  },
+  "magnetometer": {
+    "enabled": true,
+    "units": "G",
+    "range": "4 G",
+    "filterType": "mean",
+    "sampleRate": 40,
     "dataRate": 10
   }
 }
+
 ```
 
 The data from the datum-IMU sensor is also encapsulated in a JSON formatted packet.  This results in human readable text that is still easy to parse with your favorite programming language.  An example of the output is shown below.
 
 ```json
 {
-  "timestamp": 18785.05,
-  "IMU": {
-    "time": [18779.6, 18780.6, 18781.6, 18782.6],
-    "z": [1888, 1855, 1988, 1556]
+  "timestamp": 4310.4,
+  "accelerometer": {
+    "t": [4310.248, 4310.351],
+    "x": [-0.141296, -0.141052],
+    "y": [-0.035767, -0.03595],
+    "z": [-0.971252, -0.970093]
+  },
+  "gyro": {
+    "t": [4310.248, 4310.351],
+    "x": [-1.001892, -1.05423],
+    "y": [-0.800018, -0.829926],
+    "z": [0.216827, 0.194397]
+  },
+  "magnetometer": {
+    "t": [4310.247, 4310.346],
+    "x": [0.116455, 0.116943],
+    "y": [-0.253906, -0.257324],
+    "z": [0.782715, 0.781494]
   }
 }
 ```

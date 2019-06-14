@@ -16,7 +16,8 @@ sidebar:
 ![alt text](/assets/images/datumLogo-small.png) datum-Distance
 ==
 
-URI command syntax. JSON encapsulated data packets. The ideal distance sensor for your next IoT or robotics project.
+URI command syntax. JSON encapsulated data packets. 
+The ideal distance sensor for your next IoT or robotics project.
 
 ---
 - **datum**
@@ -73,7 +74,7 @@ The data from the datum-Distance sensor is also encapsulated in a JSON formatted
   "timestamp": 18785.05,
   "distance": {
     "time": [18779.6, 18780.6, 18781.6, 18782.6],
-    "z": [1888, 1855, 1988, 1556]
+    "distance": [1888, 1855, 1988, 1556]
   }
 }
 ```
