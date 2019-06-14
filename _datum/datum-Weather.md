@@ -34,6 +34,7 @@ toc: true
   - URI style command interface
   - JSON formatted data packets
   - Globally unique 64 bit UUID
+  - UF2 Bootloader
   - Mounting holes in all four corners
   - 1.0" x 1.75" (25.4 cm x 44.4 cm)
 
@@ -97,4 +98,4 @@ The datum-Weather sensor emulates a serial port over a USB connection, presents 
   ![alt text](/assets/images/datum-Weather/datum-Weather-Data2.png)
 
 
-  The datum-Weather sensor is just one of four sensors in the datum line currently available.  The other sensors, datum-Light, datum-Distance, and datum-IMU all feature the same easy to use, text based interface.  More information on the full spectrum of sensors is available [here](/datum/).
+  The datum-Weather sensor is just one of the sensors in the datum line currently available.  The other sensors, datum-Light, datum-Distance, and datum-IMU all feature the same easy to use, text based interface.  More information on the full spectrum of sensors is available [here](/datum/).

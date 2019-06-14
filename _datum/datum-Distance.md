@@ -32,6 +32,7 @@ sidebar:
   - URI style command interface
   - JSON formatted data packets
   - Globally unique 64 bit UUID
+  - UF2 Bootloader
   - Mounting holes in all four corners
   - 1.0" x 1.75" (25.4 cm x 44.4 cm)
 
@@ -84,4 +85,4 @@ It can also apply filters such as min, mix, mean, and RMS to the data stream.  T
 ![alt text](/assets/images/datum-Distance/datum-Distance-Data1.png)
 ![alt text](/assets/images/datum-Distance/datum-Distance-Data2.png)
 
-The datum-Distance sensor is just one of four sensors in the datum line currently available.  The other sensors, datum-Weather, datum-Light, and datum-IMU all feature the same easy to use, text based interface.  More information on the full spectrum of sensors is available [here](https://jandjstudios.github.io/datasheets/datumInformation.pdf).
+The datum-Distance sensor is just one of the sensors in the datum line currently available.  The other sensors, datum-Weather, datum-Light, and datum-IMU all feature the same easy to use, text based interface.  More information on the full spectrum of sensors is available [here](/datum/).
