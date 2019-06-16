@@ -1,7 +1,7 @@
 # main links
 main:
-  - title: "home"
-    url: /home/
+#  - title: "home"
+#    url: /home/
   - title: "blog"
     url: /blog/
   - title: "products"
@@ -16,7 +16,7 @@ distanceInfo:
     url: /assets/pdfs/datum-Distance.pdf
 
 weatherInfo:
-  - title: "More informationasdf"
+  - title: "More information-"
     children:
       - title: "schematic"
         url: /assets/pdfs/datum-Distance.pdf

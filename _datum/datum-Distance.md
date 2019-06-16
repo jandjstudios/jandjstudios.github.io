@@ -12,6 +12,18 @@ sidebar:
   #- title: "more information"
   #  text: "[schematic](/assets/pdfs/datum-Distance.pdf)"
 
+feature_row1:
+  - image_path: /assets/images/datum-Distance/datum-Distance Top Wide.png
+    caption: "datum-Distance"
+    alt: "datum-Distance"
+    title: "datum-Distance"
+    excerpt: "Coming soon!"
+    url: /assets/images/datum-Distance/datum-Distance Top.jpg
+  - image_path: /assets/images/datum-IMU/datum-IMU Top Wide.png
+    alt: "datum-IMU"
+    title: "datum-IMU"
+    excerpt: "Coming soon!"
+    url: /assets/images/datum-Distance/datum-Distance Bottom.jpg
 ---
 ![alt text](/assets/images/datumLogo-small.png) datum-Distance
 ==
@@ -87,3 +99,5 @@ It can also apply filters such as min, mix, mean, and RMS to the data stream.  T
 ![alt text](/assets/images/datum-Distance/datum-Distance-Data2.png)
 
 The datum-Distance sensor is just one of the sensors in the datum line currently available.  The other sensors, datum-Weather, datum-Light, and datum-IMU all feature the same easy to use, text based interface.  More information on the full spectrum of sensors is available [here](/datum/).
+
+
