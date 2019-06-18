@@ -28,8 +28,7 @@ feature_row1:
 ![alt text](/assets/images/datumLogo-small.png) datum-Distance
 ==
 
-URI command syntax. JSON encapsulated data packets. 
-The ideal distance sensor for your next IoT or robotics project.
+URI command syntax. JSON encapsulated data packets.  The ideal distance sensor for your next IoT or robotics project.
 
 ---
 - **datum**
