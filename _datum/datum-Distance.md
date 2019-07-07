@@ -12,8 +12,11 @@ sidebar:
   - title: ""
     image: /assets/images/datum-Distance/datum-Distance Top.jpg
     image_alt: "datum-Distance"
-  - text: "[  schematic  ](/assets/pdfs/datum-Distance.pdf){: .btn .btn--inverse .btn--x-large}"
-  - text: "[  parameters ](/assets/pdfs/datum-Distance.pdf){: .btn .btn--inverse  .btn--x-large}"
+  - title: "More Information"
+    text: "[schematic](/assets/pdfs/datum-Distance.pdf)"
+
+#  - text: "[  schematic  ](/assets/pdfs/datum-Distance.pdf){: .btn .btn--inverse .btn--x-large}"
+#  - text: "[  parameters ](/assets/pdfs/datum-Distance.pdf){: .btn .btn--inverse  .btn--x-large}"
 
   #- text: "[schemati2](/assets/pdfs/datum-Distance.pdf){: .btn .btn--info .btn--large}"
   #- text: "[schemati3](/assets/pdfs/datum-Distance.pdf){: .btn .btn--info .btn--large}"
