@@ -5,15 +5,24 @@ header:
   #image: /assets/images/datumLogo-small.png
   #teaser: /assets/images/foo-bar-identity-th.jpg
 
+layout: single
+author_profile: false
+
 sidebar:
-  - image: /assets/images/datum-Distance/datum-Distance Top.jpg
+  - title: ""
+    image: /assets/images/datum-Distance/datum-Distance Top.jpg
     image_alt: "datum-Distance"
-  - title: "datum-Distance"    
-  #- title: "more information"
-  #  text: "[schematic](/assets/pdfs/datum-Distance.pdf)"
+  - text: "[  schematic  ](/assets/pdfs/datum-Distance.pdf){: .btn .btn--inverse .btn--x-large}"
+  - text: "[  parameters ](/assets/pdfs/datum-Distance.pdf){: .btn .btn--inverse  .btn--x-large}"
+
+  #- text: "[schemati2](/assets/pdfs/datum-Distance.pdf){: .btn .btn--info .btn--large}"
+  #- text: "[schemati3](/assets/pdfs/datum-Distance.pdf){: .btn .btn--info .btn--large}"
+  #- text: "[schemati4](/assets/pdfs/datum-Distance.pdf){: .btn .btn--info .btn--large}"
+  #- text: "[schemati5](/assets/pdfs/datum-Distance.pdf){: .btn .btn--info .btn--large}"
+    #text:  "[Light Outline Button](/assets/pdfs/datum-Distance.pdf){: .btn .btn--light-outline}"
 
 feature_row1:
-  - image_path: /assets/images/datum-Distance/datum-Distance Top Wide.png
+  - image_path: /assets/images/datum-Distance/datum-Distance Top Wide 800x500.png
     caption: "datum-Distance"
     alt: "datum-Distance"
     title: "datum-Distance"

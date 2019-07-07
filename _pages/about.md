@@ -1,6 +1,6 @@
 ---
 permalink: /about/
-title: "About"
+title: "about"
 excerpt: "J&J Studios LLC"
 last_modified_at: 2018-07-29T12:00:00-00:80
 toc: false

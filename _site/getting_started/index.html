@@ -1,0 +1,399 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.12.0 by Michael Rose
+  Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>getting started - J&amp;J Studios</title>
+<meta name="description" content="J&amp;J Studios LLC">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="J&J Studios">
+<meta property="og:title" content="getting started">
+<meta property="og:url" content="http://0.0.0.0:4000/getting_started/">
+
+
+  <meta property="og:description" content="J&amp;J Studios LLC">
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://0.0.0.0:4000/getting_started/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "J&J Studios",
+      "url": "http://0.0.0.0:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="J&J Studios Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--archive">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="/"><img src="/assets/images/J&J Studios LLC Logo-1211x1211.png" width=75 height=75></a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="/blog/" >blog</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="/getting_started/" >getting started</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="/products/" >products</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="/datum/" >datum</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="/about/" >about</a>
+            </li>
+          
+        </ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+  
+    
+      
+        <img src=
+        
+          "/assets/images/datumLogo.png"
+        
+        alt="datumLogo">
+      
+      
+      
+      
+    
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">getting started</h1>
+    
+    
+<p>You have your brand new datum sensor plugged in, blue lights are on and flashing but not sure what to do next?  Here’s a quick introduction to some of the capabilities and how to get started right away.</p>
+
+<p>There are a number of great tutorials out there on how to use the serial interface that’s at the heart of how you interact with the datum sensors.  <a href="https://learn.sparkfun.com/tutorials/terminal-basics">Sparkfun</a> and <a href="https://learn.adafruit.com/adafruit-pygamer/advanced-serial-console-on-windows">Adafruit</a> in particular have some great guides available.  For this example we’ll be using the Serial Monitor built into the <a href="https://www.arduino.cc/en/main/software">Arduino IDE</a>.  It’s not as full featured as some of the other options out there but it is readily available on Windows, Linux, and macOS.</p>
+
+<h2 id="identify-the-port">identify the port</h2>
+
+<p>In the Arduino IDE identifying the port is very straightforward.  Click Tools on the main menu followed by Port.  In the drop down menu select the port corresponding to the board you have plugged in.</p>
+
+<p><img src="/assets/images/getting_started/ArduinoSerialMonitor-SelectPort.png" alt="alt text" class="align-center" /></p>
+
+<h2 id="open-a-serial-terminal">open a serial terminal</h2>
+
+<p>Opening a serial termianl in the Arduino IDE is also very straightforward.  Click Tools again and then click on ‘Serial Monitor’.</p>
+
+<p><img src="/assets/images/getting_started/ArduinoSerialMonitor-OpenTerminal.png" alt="alt text" class="align-center" /></p>
+
+<h2 id="connect-to-the-port">connect to the port</h2>
+
+<p>This new window is the connection to the serial interface on the datum boards.  The live data from the sensor is being streamed into this window.</p>
+
+<p><img src="/assets/images/getting_started/ArduinoSerialMonitor-MonitorOpen.png" alt="alt text" class="align-center" /></p>
+
+<h2 id="basic-commands">basic commands</h2>
+
+<p>One of the great features about the Serial Monitor is that the send and receive windows are separate from each other.  This makes entering commands much easier when automatic reporting is enabled.  To make exploring the capabilities of the datum sensors easier let’s disable the automatic reporting.  Cut and paste the command below into the window as shown and then click Send.</p>
+
+<blockquote>
+  <p>set /config?automaticReporting=false</p>
+</blockquote>
+
+<p><img src="/assets/images/getting_started/ArduinoSerialMonitor-AutoDisabled.png" alt="alt text" class="align-center" /></p>
+
+<p>The sensor responds with <code class="highlighter-rouge">200 OK</code> indicating the command was sent successfully.  If the command isn’t recognized the sensor will respond with <code class="highlighter-rouge">400 BAD REQUEST</code>.</p>
+
+<p>To see all the information about the root device and individual sensors copy the command below into the window and click Send again.</p>
+
+<blockquote>
+  <p>get /</p>
+</blockquote>
+
+<p><img src="/assets/images/getting_started/ArduinoSerialMonitor-GetAll.png" alt="alt text" class="align-center" /></p>
+
+<details>
+  <summary>Click here to see the full response.</summary>
+
+  <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"J&amp;J Studios LLC"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product"</span><span class="p">:</span><span class="w"> </span><span class="s2">"datum-Distance"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"hardwareVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"firmwareVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"protocolVersion"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"UUID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00-04-A3-0B-00-12-1B-7C"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"friendlyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friendlyName"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reportRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"automaticReporting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"compactReport"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"friendlyName"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"minimum length"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"maximum length"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"reportRate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"maximum"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"automaticReporting"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"true"</span><span class="p">,</span><span class="w"> </span><span class="s2">"false"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"compactReport"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"true"</span><span class="p">,</span><span class="w"> </span><span class="s2">"false"</span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"sensors"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"device"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"manufacturer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ST Microelectronics"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"model"</span><span class="p">:</span><span class="w"> </span><span class="s2">"VL53L1X"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"environment"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"distance"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"opticalCenterX"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"opticalCenterY"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"config"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"showStatusInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"showRateReturnInfo"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"units"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mm"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"filterType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mean"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"distanceMode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"medium"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"timingBudget"</span><span class="p">:</span><span class="w"> </span><span class="mi">35</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"interMeasurementPeriod"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sampleRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"dataRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"true"</span><span class="p">,</span><span class="w"> </span><span class="s2">"false"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"showStatusInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"true"</span><span class="p">,</span><span class="w"> </span><span class="s2">"false"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"showRateReturnInfo"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"true"</span><span class="p">,</span><span class="w"> </span><span class="s2">"false"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"units"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"m"</span><span class="p">,</span><span class="w"> </span><span class="s2">"cm"</span><span class="p">,</span><span class="w"> </span><span class="s2">"mm"</span><span class="p">,</span><span class="w"> </span><span class="s2">"feet"</span><span class="p">,</span><span class="w"> </span><span class="s2">"inches"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"filterType"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"none"</span><span class="p">,</span><span class="w"> </span><span class="s2">"min"</span><span class="p">,</span><span class="w"> </span><span class="s2">"max"</span><span class="p">,</span><span class="w"> </span><span class="s2">"mean"</span><span class="p">,</span><span class="w"> </span><span class="s2">"RMS"</span><span class="p">,</span><span class="w"> </span><span class="s2">"median"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"distanceMode"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"short"</span><span class="p">,</span><span class="w"> </span><span class="s2">"medium"</span><span class="p">,</span><span class="w"> </span><span class="s2">"long"</span><span class="p">],</span><span class="w">
+        </span><span class="s2">"timingBudget"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"maximum"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"interMeasurementPeriod"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"maximum"</span><span class="p">:</span><span class="w"> </span><span class="mi">10000</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"sampleRate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"maximum"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"dataRate"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"minimum"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"maximum"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>  </div>
+</details>
+
+<p>The report that was generated contains all the device, config, and options information on the root device and on each of the sensors hosted on the board.  If you just want the config information for the root device enter the command below.</p>
+
+<blockquote>
+  <p>get /config</p>
+</blockquote>
+
+<p><img src="/assets/images/getting_started/ArduinoSerialMonitor-GetConfig.png" alt="alt text" class="align-center" /></p>
+
+<details>
+  <summary>Click here to see the full response.</summary>
+
+  <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"friendlyName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friendlyName"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"reportRate"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"automaticReporting"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"compactReport"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>  </div>
+</details>
+
+<p>Let’s customize the report and reenable the automatic reporting.  Enter each of the commands and click Send after each one.</p>
+
+<blockquote>
+  <p>set /config?compactReport=true<br />
+set /config?reportRate=10<br />
+set /config?automaticReporting=true</p>
+</blockquote>
+
+<p><img src="/assets/images/getting_started/ArduinoSerialMonitor-AutoEnabled.png" alt="alt text" class="align-center" /></p>
+
+<p>The live data is being streamed again but it’s coming in twice as fast and each report is on a single line.  The single line reports are a great format to use when the sensors are communicating with your own programs.</p>
+
+<h2 id="going-further">going further</h2>
+
+<p>For more information about how the sensors collect, store, and report the information about the world around them check out <a href="/datum">this page</a>.  You can also get more information about each of the sensors on their <a href="/products">product</a> pages.</p>
+
+<hr />
+
+
+  </div>
+</div>
+    </div>
+
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    <!--
+    
+      <li><strong>Follow:</strong></li>
+    
+  -->
+    
+    
+    
+    
+    
+    <!--
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    -->
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 J&J Studios. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>

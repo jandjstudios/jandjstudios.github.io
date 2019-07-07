@@ -1,9 +1,11 @@
 # main links
 main:
-#  - title: "home"
-#    url: /home/
+  #- title: "home"
+  #  url: /home/
   - title: "blog"
     url: /blog/
+  - title: "getting started"
+    url: /getting_started/
   - title: "products"
     url: /products/
   - title: "datum"
@@ -11,9 +13,25 @@ main:
   - title: "about"
     url: /about/
 
+docs:
+  - title: Getting Started
+    children:
+      - title: "Quick-Start Guide"
+        url: /docs/quick-start-guide/
+      - title: "Structure"
+        url: /docs/structure/
+      - title: "Installation"
+        url: /docs/installation/
+      - title: "Upgrading"
+        url: /docs/upgrading/
+
 distanceInfo:
-  - title: "schematic"
-    url: /assets/pdfs/datum-Distance.pdf
+  - title: ""
+    children:
+      - title: "schematic"
+        url: /assets/pdfs/datum-Distance.pdf
+      - title: "specifications"
+      - title: "commands"
 
 weatherInfo:
   - title: "More information-"
@@ -29,5 +47,3 @@ foo:
         url: /child-1-page-url/
       - title: "Child Link 2"
         url: /child-2-page-url/
-
-
