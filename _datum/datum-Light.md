@@ -13,6 +13,10 @@ sidebar:
     text: "[schematic](/assets/pdfs/datum-Light.pdf)"
 #toc: true
 ---
+
+# Available now on [GroupGets](https://groupgets.com/campaigns/574-datum-light)! 
+{: .text-center}
+
 ![alt text](/assets/images/datumLogo-small.png) datum-Light
 ==  
 
@@ -20,6 +24,7 @@ URI command syntax. JSON encapsulated data packets.
 The ideal light sensor for your next IoT or robotics project.
 
 ---
+
 - **datum**
    1. a piece of information
    1. a fixed starting point of a scale or operation

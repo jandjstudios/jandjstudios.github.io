@@ -1,16 +1,16 @@
 var store = [{
         "title": "",
-        "excerpt":"datum-Distance URI command syntax. JSON encapsulated data packets. The ideal distance sensor for your next IoT or robotics project. datum a piece of information a fixed starting point of a scale or operation distance an amount of space between two things or people features Atmel SAMD21G18 microcontroller ST Microelectronics VL53LX1...","categories": [],
+        "excerpt":"Available now on GroupGets! datum-Distance URI command syntax. JSON encapsulated data packets. The ideal distance sensor for your next IoT or robotics project. datum a piece of information a fixed starting point of a scale or operation distance an amount of space between two things or people features Atmel SAMD21G18...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/datum/datum-Distance/",
         "teaser":null},{
         "title": "",
-        "excerpt":"datum-IMU URI command syntax. JSON encapsulated data packets. The ideal IMU for your next IoT or robotics project. datum a piece of information a fixed starting point of a scale or operation inertia a property of matter by which it continues in its existing state of rest or uniform motion...","categories": [],
+        "excerpt":"Available now on GroupGets! datum-IMU URI command syntax. JSON encapsulated data packets. The ideal IMU for your next IoT or robotics project. datum a piece of information a fixed starting point of a scale or operation inertia a property of matter by which it continues in its existing state of...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/datum/datum-IMU/",
         "teaser":null},{
         "title": "",
-        "excerpt":"datum-Light URI command syntax. JSON encapsulated data packets. The ideal light sensor for your next IoT or robotics project. datum a piece of information a fixed starting point of a scale or operation light the natural agent that stimulates sight and makes things visible features Atmel SAMD21G18 microcontroller Broadcom APDS-9960...","categories": [],
+        "excerpt":"Available now on GroupGets! datum-Light URI command syntax. JSON encapsulated data packets. The ideal light sensor for your next IoT or robotics project. datum a piece of information a fixed starting point of a scale or operation light the natural agent that stimulates sight and makes things visible features Atmel...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/datum/datum-Light/",
         "teaser":null},{

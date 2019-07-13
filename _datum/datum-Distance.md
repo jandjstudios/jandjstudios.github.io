@@ -37,6 +37,10 @@ feature_row1:
     excerpt: "Coming soon!"
     url: /assets/images/datum-Distance/datum-Distance Bottom.jpg
 ---
+
+# Available now on [GroupGets](https://groupgets.com/campaigns/568-datum-distance)! 
+{: .text-center}
+
 ![alt text](/assets/images/datumLogo-small.png) datum-Distance
 ==
 
