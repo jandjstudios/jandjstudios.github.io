@@ -28,4 +28,9 @@ var store = [{
         "excerpt":"OK, not really. But the campaigns for the datum-Distance, datum-IMU, and datum-Light sensors on GroupGets certainly are! Each sensor in the datum product line is meant to bridge the gap between a LEGO® Mindstorms® sensor and a breakout board. No more breadboard. No more soldering iron. Just plug in the...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/GroupGets/",
+        "teaser":null},{
+        "title": "Getting started.",
+        "excerpt":"Got one of the brand new datum sensors and not sure where to start?  Check out the getting started guide for tips on how to get going right away! ","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/GettingStarted/",
         "teaser":null}]
