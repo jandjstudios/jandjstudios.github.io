@@ -33,4 +33,9 @@ var store = [{
         "excerpt":"Got one of the brand new datum sensors and not sure where to start?  Check out the getting started guide for tips on how to get going right away! ","categories": [],
         "tags": [],
         "url": "http://localhost:4000/GettingStarted/",
+        "teaser":null},{
+        "title": "datum, roboRIO, and Java",
+        "excerpt":"This tutorial shows how to use the datum-Distance sensor with the roboRIO using Java. It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor. sensor configuration Out of the box compact reports are disabled by default. This is a great format...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/RoborioJava/",
         "teaser":null}]

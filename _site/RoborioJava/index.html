@@ -1,0 +1,535 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.12.0 by Michael Rose
+  Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>datum, roboRIO, and Java - J&amp;J Studios</title>
+<meta name="description" content="This tutorial shows how to use the datum-Distance sensor with the roboRIO using Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="J&J Studios">
+<meta property="og:title" content="datum, roboRIO, and Java">
+<meta property="og:url" content="http://localhost:4000/RoborioJava/">
+
+
+  <meta property="og:description" content="This tutorial shows how to use the datum-Distance sensor with the roboRIO using Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-07-14T00:00:00-07:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/RoborioJava/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "J&J Studios",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="J&J Studios Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--posts">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="/"><img src="/assets/images/J&J Studios LLC Logo-1211x1211.png" width=75 height=75></a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="/blog/" >blog</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="/getting_started/" >getting started</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="/products/" >products</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="/datum/" >datum</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="/about/" >about</a>
+            </li>
+          
+        </ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">datum, roboRIO, and Java</h1>
+    
+    <p>This tutorial shows how to use the <a href="/datum/datum-Distance">datum-Distance</a> sensor with the roboRIO using Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.</p>
+
+<h2 id="sensor-configuration">sensor configuration</h2>
+
+<p>Out of the box compact reports are disabled by default.  This is a great format for humans to read but not the best for robots to parse.  An example of what they look like is shown below.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">88.306</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"time"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">88.3</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"distance"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1794</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"RANGE_VALID"</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"signalRateReturn"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">3.992188</span><span class="p">],</span><span class="w">
+    </span><span class="s2">"ambientRateReturn"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">2.671875</span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p>Before plugging the datum sensor into the roboRIO check out the <a href="/getting_started">getting started</a> guide.  This is a great introduction on how you can interact with the sensor directly.  We’re going to start by changing the default report format.  Cut and paste the command below into the serial terminal and hit enter.</p>
+
+<blockquote>
+  <p>set /config?compactReport=true</p>
+</blockquote>
+
+<p>After entering the command the output looks like this.  Not quite as human readable but much easier to handle programmatically.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mf">712.206</span><span class="p">,</span><span class="s2">"distance"</span><span class="p">:{</span><span class="s2">"time"</span><span class="p">:[</span><span class="mf">712.2</span><span class="p">],</span><span class="s2">"distance"</span><span class="p">:[</span><span class="mi">1783</span><span class="p">],</span><span class="s2">"status"</span><span class="p">:[</span><span class="s2">"RANGE_VALID"</span><span class="p">],</span><span class="s2">"signalRateReturn"</span><span class="p">:[</span><span class="mf">3.445313</span><span class="p">],</span><span class="s2">"ambientRateReturn"</span><span class="p">:[</span><span class="mf">2.71875</span><span class="p">]}}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>This is also a great time to adjust the sample, data, and report rates.  Filters can be changed and units can be adjusted too. All the settings are saved on the sensor itself so you won’t have to reconfigure it when it’s plugged into the roboRIO.  There’s more information about all of these parameters <a href="/datum">here</a> and on the product pages.</p>
+
+<p>Now unplug the sensor from the computer and plug it into the roboRIO.  Before jumping into the code there a couple things to do in the build environment first.  They aren’t strictly necessary but it makes parsing the JSON data packets much easier.</p>
+
+<h2 id="build-environment">build environment</h2>
+
+<p>There</p>
+
+<p>This tutorial will use the</p>
+
+<h3 id="update-buildgradle">update build.gradle</h3>
+
+<p>Add the following line to the dependencies section of <code class="highlighter-rouge">build.gradle</code>.</p>
+
+<blockquote>
+  <p>compile ‘org.json:json:20180813’</p>
+</blockquote>
+
+<p>Here’s what the dependencies section looks like now.  Note that there may be other entries here depending on your specific build environment.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Defining my dependencies. In this case, WPILib (+ friends), and vendor libraries.</span>
+<span class="c1">// Also defines JUnit 4.</span>
+<span class="n">dependencies</span> <span class="o">{</span>
+    <span class="n">compile</span> <span class="n">wpi</span><span class="o">.</span><span class="na">deps</span><span class="o">.</span><span class="na">wpilib</span><span class="o">()</span>
+    <span class="n">compile</span> <span class="n">wpi</span><span class="o">.</span><span class="na">deps</span><span class="o">.</span><span class="na">vendor</span><span class="o">.</span><span class="na">java</span><span class="o">()</span>
+    <span class="n">compile</span> <span class="err">'</span><span class="n">org</span><span class="o">.</span><span class="na">json</span><span class="o">:</span><span class="nl">json:</span><span class="mi">20180813</span><span class="err">'</span>
+    <span class="n">nativeZip</span> <span class="n">wpi</span><span class="o">.</span><span class="na">deps</span><span class="o">.</span><span class="na">vendor</span><span class="o">.</span><span class="na">jni</span><span class="o">(</span><span class="n">wpi</span><span class="o">.</span><span class="na">platforms</span><span class="o">.</span><span class="na">roborio</span><span class="o">)</span>
+    <span class="n">nativeDesktopZip</span> <span class="n">wpi</span><span class="o">.</span><span class="na">deps</span><span class="o">.</span><span class="na">vendor</span><span class="o">.</span><span class="na">jni</span><span class="o">(</span><span class="n">wpi</span><span class="o">.</span><span class="na">platforms</span><span class="o">.</span><span class="na">desktop</span><span class="o">)</span>
+    <span class="n">testCompile</span> <span class="err">'</span><span class="nl">junit:junit:</span><span class="mf">4.12</span><span class="err">'</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h2 id="code">code</h2>
+
+<h3 id="imports">imports</h3>
+
+<p>Add the following lines at the beginning of the file.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.json.JSONObject</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.json.JSONArray</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.json.JSONException</span><span class="o">;</span>
+</code></pre></div></div>
+
+<h3 id="initialize-the-serial-port">initialize the serial port</h3>
+
+<p>Add a line to initialize the serial port.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * This function is run when the robot is first started up and should be
+ * used for any initialization code.
+ */</span>
+<span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">robotInit</span><span class="o">()</span> <span class="o">{</span>
+  <span class="n">serialPort0</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SerialPort</span><span class="o">(</span><span class="mi">921600</span><span class="o">,</span> <span class="n">SerialPort</span><span class="o">.</span><span class="na">Port</span><span class="o">.</span><span class="na">kUSB</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<h3 id="check-for-new-data-and-parse-the-results">check for new data and parse the results</h3>
+
+<p>Next add the block of code to teleopPeriodic.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cm">/**
+   * This function is called periodically during teleoperated mode.
+   */</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">teleopPeriodic</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">m_robotDrive</span><span class="o">.</span><span class="na">arcadeDrive</span><span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">);</span>
+    
+    <span class="n">String</span> <span class="n">response</span> <span class="o">=</span> <span class="n">serialPort0</span><span class="o">.</span><span class="na">readString</span><span class="o">();</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">){</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="n">JSONObject</span> <span class="n">responseObject</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JSONObject</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
+        <span class="n">JSONObject</span> <span class="n">distanceObject</span> <span class="o">=</span> <span class="n">responseObject</span><span class="o">.</span><span class="na">getJSONObject</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
+        <span class="n">JSONArray</span> <span class="n">distanceArray</span> <span class="o">=</span> <span class="n">distanceObject</span><span class="o">.</span><span class="na">getJSONArray</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
+        <span class="kt">double</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">distanceArray</span><span class="o">.</span><span class="na">getDouble</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+        <span class="kt">double</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="n">responseObject</span><span class="o">.</span><span class="na">getDouble</span><span class="o">(</span><span class="s">"timestamp"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"timestamp: "</span> <span class="o">+</span> <span class="n">timestamp</span> <span class="o">+</span> <span class="s">"\t"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"distance: "</span> <span class="o">+</span> <span class="n">distance</span><span class="o">);</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">JSONException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ex</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div></div>
+<p>Now build and deploy the code to the roboRIO.  Open the console</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> timestamp: 101839.806	distance: 1707.0 
+ timestamp: 101839.906	distance: 1712.0 
+ timestamp: 101840.006	distance: 1710.0 
+ timestamp: 101840.106	distance: 1708.0 
+ timestamp: 101840.206	distance: 1708.0 
+ timestamp: 101840.306	distance: 1711.0 
+ timestamp: 101840.406	distance: 1710.0 
+ timestamp: 101840.506	distance: 1707.0 
+ timestamp: 101840.606	distance: 1708.0 
+ timestamp: 101840.706	distance: 1709.0 
+ timestamp: 101840.806	distance: 1710.0 
+</code></pre></div></div>
+
+<details>
+  <summary>Click for full code listing.</summary>
+
+  <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*----------------------------------------------------------------------------*/</span>
+<span class="cm">/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */</span>
+<span class="cm">/* Open Source Software - may be modified and shared by FRC teams. The code   */</span>
+<span class="cm">/* must be accompanied by the FIRST BSD license file in the root directory of */</span>
+<span class="cm">/* the project.                                                               */</span>
+<span class="cm">/*----------------------------------------------------------------------------*/</span>
+
+<span class="kn">package</span> <span class="n">frc</span><span class="o">.</span><span class="na">robot</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj.Joystick</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj.PWMVictorSPX</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj.TimedRobot</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj.Timer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj.drive.DifferentialDrive</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj.SerialPort</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.json.JSONObject</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.json.JSONArray</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.json.JSONException</span><span class="o">;</span>
+
+<span class="cm">/**
+ * The VM is configured to automatically run this class, and to call the
+ * functions corresponding to each mode, as described in the TimedRobot
+ * documentation. If you change the name of this class or the package after
+ * creating this project, you must also update the manifest file in the resource
+ * directory.
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Robot</span> <span class="kd">extends</span> <span class="n">TimedRobot</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">DifferentialDrive</span> <span class="n">m_robotDrive</span>
+      <span class="o">=</span> <span class="k">new</span> <span class="n">DifferentialDrive</span><span class="o">(</span><span class="k">new</span> <span class="n">PWMVictorSPX</span><span class="o">(</span><span class="mi">0</span><span class="o">),</span> <span class="k">new</span> <span class="n">PWMVictorSPX</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">Joystick</span> <span class="n">m_stick</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Joystick</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">Timer</span> <span class="n">m_timer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Timer</span><span class="o">();</span>
+  <span class="kd">private</span> <span class="n">SerialPort</span> <span class="n">serialPort0</span><span class="o">;</span>
+  <span class="kd">private</span> <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+
+  <span class="cm">/**
+   * This function is run when the robot is first started up and should be
+   * used for any initialization code.
+   */</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">robotInit</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">serialPort0</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SerialPort</span><span class="o">(</span><span class="mi">921600</span><span class="o">,</span> <span class="n">SerialPort</span><span class="o">.</span><span class="na">Port</span><span class="o">.</span><span class="na">kUSB</span><span class="o">);</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**
+   * This function is run once each time the robot enters autonomous mode.
+   */</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">autonomousInit</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">m_timer</span><span class="o">.</span><span class="na">reset</span><span class="o">();</span>
+    <span class="n">m_timer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**
+   * This function is called periodically during autonomous.
+   */</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">autonomousPeriodic</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">// Drive for 2 seconds</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">m_timer</span><span class="o">.</span><span class="na">get</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mf">2.0</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">m_robotDrive</span><span class="o">.</span><span class="na">arcadeDrive</span><span class="o">(</span><span class="mf">0.5</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">);</span> <span class="c1">// drive forwards half speed</span>
+    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+      <span class="n">m_robotDrive</span><span class="o">.</span><span class="na">stopMotor</span><span class="o">();</span> <span class="c1">// stop robot</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**
+   * This function is called once each time the robot enters teleoperated mode.
+   */</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">teleopInit</span><span class="o">()</span> <span class="o">{</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**
+   * This function is called periodically during teleoperated mode.
+   */</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">teleopPeriodic</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">m_robotDrive</span><span class="o">.</span><span class="na">arcadeDrive</span><span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">);</span>
+    
+    <span class="n">String</span> <span class="n">response</span> <span class="o">=</span> <span class="n">serialPort0</span><span class="o">.</span><span class="na">readString</span><span class="o">();</span>
+
+    <span class="k">if</span> <span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">){</span>
+      <span class="k">try</span> <span class="o">{</span>
+        <span class="n">JSONObject</span> <span class="n">responseObject</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JSONObject</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
+        <span class="n">JSONObject</span> <span class="n">distanceObject</span> <span class="o">=</span> <span class="n">responseObject</span><span class="o">.</span><span class="na">getJSONObject</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
+        <span class="n">JSONArray</span> <span class="n">distanceArray</span> <span class="o">=</span> <span class="n">distanceObject</span><span class="o">.</span><span class="na">getJSONArray</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
+        <span class="kt">double</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">distanceArray</span><span class="o">.</span><span class="na">getDouble</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+        <span class="kt">double</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="n">responseObject</span><span class="o">.</span><span class="na">getDouble</span><span class="o">(</span><span class="s">"timestamp"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"timestamp: "</span> <span class="o">+</span> <span class="n">timestamp</span> <span class="o">+</span> <span class="s">"\t"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"distance: "</span> <span class="o">+</span> <span class="n">distance</span><span class="o">);</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">JSONException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">ex</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+      <span class="o">}</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+
+  <span class="cm">/**
+   * This function is called periodically during test mode.
+   */</span>
+  <span class="nd">@Override</span>
+  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">testPeriodic</span><span class="o">()</span> <span class="o">{</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>  </div>
+</details>
+
+
+<ul class="taxonomy__index">
+  
+  
+    <li>
+      <a href="#2019">
+        <strong>2019</strong> <span class="taxonomy__count">3</span>
+      </a>
+    </li>
+  
+</ul>
+
+
+
+  <section id="2019" class="taxonomy__section">
+    <h2 class="archive__subtitle">2019</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/RoborioJava/" rel="permalink">datum, roboRIO, and Java
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">This tutorial shows how to use the datum-Distance sensor with the roboRIO using Java.  It covers configuring the sensor, setting up the build environment, an...</p>
+  </article>
+</div>
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/GettingStarted/" rel="permalink">Getting started.
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Got one of the brand new datum sensors and not sure where to start?  Check out the getting started guide for tips on how to get going right away!
+
+</p>
+  </article>
+</div>
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/GroupGets/" rel="permalink">They’re alive!
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">OK, not really.  But the campaigns for the datum-Distance, datum-IMU, and datum-Light sensors on GroupGets certainly are!
+
+</p>
+  </article>
+</div>
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+
+  </div>
+</div>
+    </div>
+
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    <!--
+    
+      <li><strong>Follow:</strong></li>
+    
+  -->
+    
+    
+    
+    
+    
+    <!--
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    -->
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 J&J Studios. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+
+
+
+
+
+
+
+
+  </body>
+</html>
