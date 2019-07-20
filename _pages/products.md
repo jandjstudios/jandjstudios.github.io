@@ -12,34 +12,24 @@ gallery_row1:
     alt: "datum-Distance"
     title: "datum-Distance"
     excerpt: "Coming soon!"
-    url: /datum/datum-Distance
+    url: /datum-Distance
   - image_path: /assets/images/datum-IMU/datum-IMU Top Wide 800x500.png
     alt: "datum-IMU"
     title: "datum-IMU"
     excerpt: "Coming soon!"
-    url: /datum/datum-IMU
+    url: /datum-IMU
 gallery_row2:
   - image_path: /assets/images/datum-Light/datum-Light Top Wide 800x500.png
     alt: "datum-Light"
     title: "datum-Light"
     excerpt: "Coming soon!"
-    url: /datum/datum-Light
+    url: /datum-Light
   - image_path: /assets/images/datum-Weather/datum-Weather Top Wide 800x500.png
     alt: "datum-Weather"
     title: "datum-Weather"
     excerpt: "Breaking the barrier between a LEGO&reg; Mindstorms&reg; sensor and a breakout board."              
-    url: /datum/datum-Weather
-
-feature_row2:  
-  - alt: "datum-Light"
-    title: "datum-Light"
-    url: /datum/datum-Light
-    type: "right"
-  - alt: "datum-Weather"
-    title: "datum-Weather"
-    url: /datum/datum-Weather
-    btn_label: "Read More"
-    btn_class: "btn--inverse"    
+    url: /datum-Weather
+ 
 ---
 
 {% include gallery_datum id="gallery_row1" %}

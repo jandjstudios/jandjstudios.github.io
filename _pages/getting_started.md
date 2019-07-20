@@ -3,7 +3,10 @@ permalink: /getting_started/
 title: "getting started"
 excerpt: "J&J Studios LLC"
 last_modified_at: 2019-07-7T12:00:00-00:80
-toc: false
+layout: single
+toc: true
+toc_label: "contents"
+toc_sticky: true
 author_profile: false
 sidebar:
   - image: /assets/images/datumLogo.png

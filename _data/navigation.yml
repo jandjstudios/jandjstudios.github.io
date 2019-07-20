@@ -1,7 +1,5 @@
 # main links
 main:
-  #- title: "home"
-  #  url: /home/
   - title: "blog"
     url: /blog/
   - title: "getting started"
@@ -11,39 +9,44 @@ main:
   - title: "datum"
     url: /datum/
   - title: "about"
-    url: /about/
-
-docs:
-  - title: Getting Started
-    children:
-      - title: "Quick-Start Guide"
-        url: /docs/quick-start-guide/
-      - title: "Structure"
-        url: /docs/structure/
-      - title: "Installation"
-        url: /docs/installation/
-      - title: "Upgrading"
-        url: /docs/upgrading/
+    url: /about/  
 
 distanceInfo:
-  - title: ""
+  - title: "downloads"
     children:
       - title: "schematic"
         url: /assets/pdfs/datum-Distance.pdf
-      - title: "specifications"
-      - title: "commands"
+      - title: datum-Distance.uf2
+        url: /assets/binaries/datum-Distance.uf2
+      - title: "CircuitPython.uf2"
+        url: "https://github.com/adafruit/circuitpython/releases/download/4.1.0-rc.1/adafruit-circuitpython-datum_distance-en_US-4.1.0-rc.1.uf2"
+
+imuInfo:
+  - title: "downloads"
+    children:
+      - title: "schematic"
+        url: /assets/pdfs/datum-IMU.pdf
+      - title: datum-IMU.uf2
+        url: /assets/binaries/datum-IMU.uf2
+      - title: "CircuitPython.uf2"
+        url: "https://github.com/adafruit/circuitpython/releases/download/4.1.0-rc.1/adafruit-circuitpython-datum_imu-en_US-4.1.0-rc.1.uf2"
+
+lightInfo:
+  - title: "downloads"
+    children:
+      - title: "schematic"
+        url: /assets/pdfs/datum-Light.pdf
+      - title: datum-Light.uf2
+        url: /assets/binaries/datum-Light.uf2
+      - title: "CircuitPython.uf2"
+        url: "https://github.com/adafruit/circuitpython/releases/download/4.1.0-rc.1/adafruit-circuitpython-datum_weather-en_US-4.1.0-rc.1.uf2"
 
 weatherInfo:
-  - title: "More information-"
+  - title: "downloads"
     children:
       - title: "schematic"
-        url: /assets/pdfs/datum-Distance.pdf
-
-foo:
-  - title: "Parent Link 1"
-    url: /parent-1-page-url/
-    children:
-      - title: "Child Link 1"
-        url: /child-1-page-url/
-      - title: "Child Link 2"
-        url: /child-2-page-url/
+        url: /assets/pdfs/datum-Weather.pdf
+      - title: datum-Weather.uf2
+        url: /assets/binaries/datum-Weather.uf2
+      - title: "CircuitPython.uf2"
+        url: "https://github.com/adafruit/circuitpython/releases/download/4.1.0-rc.1/adafruit-circuitpython-datum_distance-en_US-4.1.0-rc.1.uf2"
