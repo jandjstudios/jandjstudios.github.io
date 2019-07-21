@@ -9,7 +9,7 @@ toc_label: "contents"
 toc_sticky: true
 author_profile: false
 sidebar:
-  - image: /assets/images/datumLogo.png
+  - image: /assets/images/datumLogo-medium.png
     image_alt: "datumLogo"
 ---
 
