@@ -10,7 +10,7 @@ toc_label: "contents"
 toc_sticky: true
 ---
 
-This tutorial shows how to use the [datum-Distance](/datum/datum-Distance) sensor with the roboRIO and Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor. 
+This tutorial shows how to use the [datum-Distance](/datum-Distance) sensor with the roboRIO and Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor. 
 
 ## sensor configuration
 
@@ -40,7 +40,7 @@ After entering the command the output looks like this.  Not quite as human reada
 {"timestamp":712.206,"distance":{"time":[712.2],"distance":[1783],"status":["RANGE_VALID"],"signalRateReturn":[3.445313],"ambientRateReturn":[2.71875]}}
 ```
 
-This is also a great time to adjust the sample, data, and report rates.  Filters can be changed and units can be adjusted too. All the settings are saved on the sensor itself so you won't have to reconfigure it when it's plugged into the roboRIO.  There's more information about all of these parameters [here](/datum) and on the [product](/product) pages.
+This is also a great time to adjust the sample, data, and report rates.  Filters can be changed and units can be adjusted too. All the settings are saved on the sensor itself so you won't have to reconfigure it when it's plugged into the roboRIO.  There's more information about all of these parameters [here](/datum) and on the [product](/products) pages.
 
 When you're done configuring the sensor unplug it from the computer and plug it into the roboRIO.  
 
