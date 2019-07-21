@@ -1,22 +1,22 @@
 <!doctype html>
 <!--
-  Minimal Mistakes Jekyll Theme 4.16.5 by Michael Rose
-  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Minimal Mistakes Jekyll Theme 4.12.0 by Michael Rose
+  Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
   Free for personal and commercial use under the MIT license
-  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
 -->
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>datum, roboRIO, and Java -</title>
+<!-- begin _includes/seo.html --><title>datum, roboRIO, and Java - J&amp;J Studios</title>
 <meta name="description" content="This tutorial shows how to use the datum-Distance sensor with the roboRIO using Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="">
+<meta property="og:site_name" content="J&J Studios">
 <meta property="og:title" content="datum, roboRIO, and Java">
 <meta property="og:url" content="http://localhost:4000/RoborioJava/">
 
@@ -50,7 +50,7 @@
 
   <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
+      "@context": "http://schema.org",
       "@type": "Person",
       "name": "J&J Studios",
       "url": "http://localhost:4000",
@@ -67,9 +67,11 @@
 <!-- end _includes/seo.html -->
 
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" Feed">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="J&J Studios Feed">
 
-<!-- https://t.co/dKP3o1e -->
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script>
@@ -79,7 +81,7 @@
 <!-- For all browsers -->
 <link rel="stylesheet" href="/assets/css/main.css">
 
-<!--[if IE ]>
+<!--[if lte IE 9]>
   <style>
     /* old IE unsupported flexbox fixes */
     .greedy-nav .site-title {
@@ -95,7 +97,6 @@
 <![endif]-->
 
 
-
     <!-- start custom head snippets -->
 
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
@@ -104,47 +105,48 @@
 
   </head>
 
-  <body class="layout--single">
-    <nav class="skip-links">
-  <h2 class="screen-reader-text">Skip links</h2>
-  <ul>
-    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
-    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
-    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
-  </ul>
-</nav>
+  <body class="layout--posts">
 
     <!--[if lt IE 9]>
 <div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
 <![endif]-->
 
-    
-
-<div class="masthead">
+    <div class="masthead">
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        
-          <a class="site-logo" href="/"><img src="/assets/images/J&J%20Studios%20LLC%20Logo-1211x1211.png" alt=""></a>
-        
-        <a class="site-title" href="/">
+        <a class="site-title" href="/"><img src="/assets/images/J&J Studios LLC Logo-1211x1211.png" width=75 height=75></a>
+        <ul class="visible-links">
           
-          
-        </a>
-        <ul class="visible-links"><li class="masthead__menu-item">
+            
+            <li class="masthead__menu-item">
               <a href="/blog/" >blog</a>
-            </li><li class="masthead__menu-item">
+            </li>
+          
+            
+            <li class="masthead__menu-item">
               <a href="/getting_started/" >getting started</a>
-            </li><li class="masthead__menu-item">
+            </li>
+          
+            
+            <li class="masthead__menu-item">
               <a href="/products/" >products</a>
-            </li><li class="masthead__menu-item">
+            </li>
+          
+            
+            <li class="masthead__menu-item">
               <a href="/datum/" >datum</a>
-            </li><li class="masthead__menu-item">
+            </li>
+          
+            
+            <li class="masthead__menu-item">
               <a href="/about/" >about</a>
-            </li></ul>
+            </li>
+          
+        </ul>
         
         <button class="greedy-nav__toggle hidden" type="button">
-          <span class="visually-hidden">Toggle menu</span>
+          <span class="visually-hidden">Toggle Menu</span>
           <div class="navicon"></div>
         </button>
         <ul class="hidden-links hidden"></ul>
@@ -162,45 +164,11 @@
 <div id="main" role="main">
   
 
-  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
-    <meta itemprop="headline" content="datum, roboRIO, and Java">
-    <meta itemprop="description" content="This tutorial shows how to use the datum-Distance sensor with the roboRIO using Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.">
-    <meta itemprop="datePublished" content="July 14, 2019">
+  <div class="archive">
     
-
-    <div class="page__inner-wrap">
-      
-        <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">datum, roboRIO, and Java
-</h1>
-          
-        </header>
-      
-
-      <section class="page__content" itemprop="text">
-        
-          <aside class="sidebar__right sticky">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> contents</h4></header>
-              <ul class="toc__menu">
-  <li><a href="#sensor-configuration">sensor configuration</a></li>
-  <li><a href="#build-environment">build environment</a>
-    <ul>
-      <li><a href="#update-buildgradle">update build.gradle</a></li>
-    </ul>
-  </li>
-  <li><a href="#code">code</a>
-    <ul>
-      <li><a href="#imports">imports</a></li>
-      <li><a href="#initialize-the-serial-port">initialize the serial port</a></li>
-      <li><a href="#check-for-new-data-and-parse-the-results">check for new data and parse the results</a></li>
-    </ul>
-  </li>
-</ul>
-            </nav>
-          </aside>
-        
-        <p>This tutorial shows how to use the <a href="/datum/datum-Distance">datum-Distance</a> sensor with the roboRIO using Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.</p>
+      <h1 id="page-title" class="page__title">datum, roboRIO, and Java</h1>
+    
+    <p>This tutorial shows how to use the <a href="/datum/datum-Distance">datum-Distance</a> sensor with the roboRIO using Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.</p>
 
 <h2 id="sensor-configuration">sensor configuration</h2>
 
@@ -280,7 +248,7 @@
  */</span>
 <span class="nd">@Override</span>
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">robotInit</span><span class="o">()</span> <span class="o">{</span>
-  <span class="n">serialPort0</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SerialPort</span><span class="o">(</span><span class="mi">921600</span><span class="o">,</span> <span class="nc">SerialPort</span><span class="o">.</span><span class="na">Port</span><span class="o">.</span><span class="na">kUSB</span><span class="o">);</span>
+  <span class="n">serialPort0</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SerialPort</span><span class="o">(</span><span class="mi">921600</span><span class="o">,</span> <span class="n">SerialPort</span><span class="o">.</span><span class="na">Port</span><span class="o">.</span><span class="na">kUSB</span><span class="o">);</span>
 <span class="o">}</span>
 </code></pre></div></div>
 <h3 id="check-for-new-data-and-parse-the-results">check for new data and parse the results</h3>
@@ -294,18 +262,18 @@
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">teleopPeriodic</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">m_robotDrive</span><span class="o">.</span><span class="na">arcadeDrive</span><span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">);</span>
     
-    <span class="nc">String</span> <span class="n">response</span> <span class="o">=</span> <span class="n">serialPort0</span><span class="o">.</span><span class="na">readString</span><span class="o">();</span>
+    <span class="n">String</span> <span class="n">response</span> <span class="o">=</span> <span class="n">serialPort0</span><span class="o">.</span><span class="na">readString</span><span class="o">();</span>
 
     <span class="k">if</span> <span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">){</span>
       <span class="k">try</span> <span class="o">{</span>
-        <span class="nc">JSONObject</span> <span class="n">responseObject</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JSONObject</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
-        <span class="nc">JSONObject</span> <span class="n">distanceObject</span> <span class="o">=</span> <span class="n">responseObject</span><span class="o">.</span><span class="na">getJSONObject</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
-        <span class="nc">JSONArray</span> <span class="n">distanceArray</span> <span class="o">=</span> <span class="n">distanceObject</span><span class="o">.</span><span class="na">getJSONArray</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
+        <span class="n">JSONObject</span> <span class="n">responseObject</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JSONObject</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
+        <span class="n">JSONObject</span> <span class="n">distanceObject</span> <span class="o">=</span> <span class="n">responseObject</span><span class="o">.</span><span class="na">getJSONObject</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
+        <span class="n">JSONArray</span> <span class="n">distanceArray</span> <span class="o">=</span> <span class="n">distanceObject</span><span class="o">.</span><span class="na">getJSONArray</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
         <span class="kt">double</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">distanceArray</span><span class="o">.</span><span class="na">getDouble</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
         <span class="kt">double</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="n">responseObject</span><span class="o">.</span><span class="na">getDouble</span><span class="o">(</span><span class="s">"timestamp"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"timestamp: "</span> <span class="o">+</span> <span class="n">timestamp</span> <span class="o">+</span> <span class="s">"\t"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"distance: "</span> <span class="o">+</span> <span class="n">distance</span><span class="o">);</span>
-      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">JSONException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"timestamp: "</span> <span class="o">+</span> <span class="n">timestamp</span> <span class="o">+</span> <span class="s">"\t"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"distance: "</span> <span class="o">+</span> <span class="n">distance</span><span class="o">);</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">JSONException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">ex</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
       <span class="o">}</span>
     <span class="o">}</span>
@@ -356,12 +324,12 @@
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Robot</span> <span class="kd">extends</span> <span class="nc">TimedRobot</span> <span class="o">{</span>
-  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">DifferentialDrive</span> <span class="n">m_robotDrive</span>
-      <span class="o">=</span> <span class="k">new</span> <span class="nc">DifferentialDrive</span><span class="o">(</span><span class="k">new</span> <span class="nc">PWMVictorSPX</span><span class="o">(</span><span class="mi">0</span><span class="o">),</span> <span class="k">new</span> <span class="nc">PWMVictorSPX</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
-  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Joystick</span> <span class="n">m_stick</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Joystick</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Timer</span> <span class="n">m_timer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Timer</span><span class="o">();</span>
-  <span class="kd">private</span> <span class="nc">SerialPort</span> <span class="n">serialPort0</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Robot</span> <span class="kd">extends</span> <span class="n">TimedRobot</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">DifferentialDrive</span> <span class="n">m_robotDrive</span>
+      <span class="o">=</span> <span class="k">new</span> <span class="n">DifferentialDrive</span><span class="o">(</span><span class="k">new</span> <span class="n">PWMVictorSPX</span><span class="o">(</span><span class="mi">0</span><span class="o">),</span> <span class="k">new</span> <span class="n">PWMVictorSPX</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">Joystick</span> <span class="n">m_stick</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Joystick</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="n">Timer</span> <span class="n">m_timer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Timer</span><span class="o">();</span>
+  <span class="kd">private</span> <span class="n">SerialPort</span> <span class="n">serialPort0</span><span class="o">;</span>
   <span class="kd">private</span> <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
   <span class="cm">/**
@@ -370,7 +338,7 @@
    */</span>
   <span class="nd">@Override</span>
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">robotInit</span><span class="o">()</span> <span class="o">{</span>
-    <span class="n">serialPort0</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SerialPort</span><span class="o">(</span><span class="mi">921600</span><span class="o">,</span> <span class="nc">SerialPort</span><span class="o">.</span><span class="na">Port</span><span class="o">.</span><span class="na">kUSB</span><span class="o">);</span>
+    <span class="n">serialPort0</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SerialPort</span><span class="o">(</span><span class="mi">921600</span><span class="o">,</span> <span class="n">SerialPort</span><span class="o">.</span><span class="na">Port</span><span class="o">.</span><span class="na">kUSB</span><span class="o">);</span>
   <span class="o">}</span>
 
   <span class="cm">/**
@@ -409,18 +377,18 @@
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">teleopPeriodic</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">m_robotDrive</span><span class="o">.</span><span class="na">arcadeDrive</span><span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">);</span>
     
-    <span class="nc">String</span> <span class="n">response</span> <span class="o">=</span> <span class="n">serialPort0</span><span class="o">.</span><span class="na">readString</span><span class="o">();</span>
+    <span class="n">String</span> <span class="n">response</span> <span class="o">=</span> <span class="n">serialPort0</span><span class="o">.</span><span class="na">readString</span><span class="o">();</span>
 
     <span class="k">if</span> <span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">){</span>
       <span class="k">try</span> <span class="o">{</span>
-        <span class="nc">JSONObject</span> <span class="n">responseObject</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JSONObject</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
-        <span class="nc">JSONObject</span> <span class="n">distanceObject</span> <span class="o">=</span> <span class="n">responseObject</span><span class="o">.</span><span class="na">getJSONObject</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
-        <span class="nc">JSONArray</span> <span class="n">distanceArray</span> <span class="o">=</span> <span class="n">distanceObject</span><span class="o">.</span><span class="na">getJSONArray</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
+        <span class="n">JSONObject</span> <span class="n">responseObject</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JSONObject</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
+        <span class="n">JSONObject</span> <span class="n">distanceObject</span> <span class="o">=</span> <span class="n">responseObject</span><span class="o">.</span><span class="na">getJSONObject</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
+        <span class="n">JSONArray</span> <span class="n">distanceArray</span> <span class="o">=</span> <span class="n">distanceObject</span><span class="o">.</span><span class="na">getJSONArray</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
         <span class="kt">double</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">distanceArray</span><span class="o">.</span><span class="na">getDouble</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
         <span class="kt">double</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="n">responseObject</span><span class="o">.</span><span class="na">getDouble</span><span class="o">(</span><span class="s">"timestamp"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"timestamp: "</span> <span class="o">+</span> <span class="n">timestamp</span> <span class="o">+</span> <span class="s">"\t"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"distance: "</span> <span class="o">+</span> <span class="n">distance</span><span class="o">);</span>
-      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">JSONException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"timestamp: "</span> <span class="o">+</span> <span class="n">timestamp</span> <span class="o">+</span> <span class="s">"\t"</span><span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"distance: "</span> <span class="o">+</span> <span class="n">distance</span><span class="o">);</span>
+      <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">JSONException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">ex</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
       <span class="o">}</span>
     <span class="o">}</span>
@@ -436,60 +404,48 @@
 </code></pre></div>  </div>
 </details>
 
-        
-      </section>
 
-      <footer class="page__meta">
-        
-        
-
-
-        
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-07-14T00:00:00-07:00">July 14, 2019</time></p>
-        
-      </footer>
-
-      <section class="page__share">
+<ul class="taxonomy__index">
   
-    <h4 class="page__share-title">Share on</h4>
   
+    <li>
+      <a href="#2019">
+        <strong>2019</strong> <span class="taxonomy__count">3</span>
+      </a>
+    </li>
+  
+</ul>
 
-  <a href="https://twitter.com/intent/tweet?text=datum%2C+roboRIO%2C+and+Java%20http%3A%2F%2Flocalhost%3A4000%2FRoborioJava%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
-
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2FRoborioJava%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
-
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2FRoborioJava%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
-</section>
 
 
+  <section id="2019" class="taxonomy__section">
+    <h2 class="archive__subtitle">2019</h2>
+    <div class="entries-list">
       
-  <nav class="pagination">
-    
-      <a href="/GettingStarted/" class="pagination--pager" title="Getting started.
-">Previous</a>
-    
-    
-      <a href="#" class="pagination--pager disabled">Next</a>
-    
-  </nav>
-
-    </div>
-
-    
-  </article>
-
-  
-  
-    <div class="page__related">
-      <h4 class="page__related-title">You may also enjoy</h4>
-      <div class="grid__wrapper">
         
-          
 
 
 
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/RoborioJava/" rel="permalink">datum, roboRIO, and Java
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">This tutorial shows how to use the datum-Distance sensor with the roboRIO using Java.  It covers configuring the sensor, setting up the build environment, an...</p>
+  </article>
+</div>
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline">
       
@@ -503,14 +459,13 @@
 </p>
   </article>
 </div>
-
+      
         
-          
 
 
 
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline">
       
@@ -524,46 +479,39 @@
 </p>
   </article>
 </div>
-
-        
-      </div>
+      
     </div>
-  
-  
-</div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
 
+
+  </div>
+</div>
     </div>
 
     
 
-    <div id="footer" class="page__footer">
+    <div class="page__footer">
       <footer>
         <!-- start custom footer snippets -->
 
 <!-- end custom footer snippets -->
+
         <div class="page__footer-follow">
   <ul class="social-icons">
+    <!--
     
       <li><strong>Follow:</strong></li>
     
-
+  -->
     
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
     
-
+    
+    
+    
+    <!--
     <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    -->
   </ul>
 </div>
 
@@ -574,9 +522,7 @@
 
     
   <script src="/assets/js/main.min.js"></script>
-  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
-
-
+  <script src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
 
 
 

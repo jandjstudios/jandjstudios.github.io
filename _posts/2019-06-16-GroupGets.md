@@ -1,10 +1,9 @@
 ---
 title: They're alive!
-layout: single
+layout: posts
 read_time: false
 comments: null
 sidebar: false
-author_profile: false
 ---
 
 OK, not really.  But the campaigns for the [datum-Distance][1], [datum-IMU][2], and [datum-Light][3] sensors on GroupGets certainly are!  
