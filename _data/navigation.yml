@@ -39,7 +39,7 @@ lightInfo:
       - title: datum-Light.uf2
         url: /assets/binaries/datum-Light.uf2
       - title: "CircuitPython.uf2"
-        url: "https://github.com/adafruit/circuitpython/releases/download/4.1.0-rc.1/adafruit-circuitpython-datum_weather-en_US-4.1.0-rc.1.uf2"
+        url: "https://github.com/adafruit/circuitpython/releases/download/4.1.0-rc.1/adafruit-circuitpython-datum_light-en_US-4.1.0-rc.1.uf2"
 
 weatherInfo:
   - title: "downloads"
@@ -49,4 +49,4 @@ weatherInfo:
       - title: datum-Weather.uf2
         url: /assets/binaries/datum-Weather.uf2
       - title: "CircuitPython.uf2"
-        url: "https://github.com/adafruit/circuitpython/releases/download/4.1.0-rc.1/adafruit-circuitpython-datum_distance-en_US-4.1.0-rc.1.uf2"
+        url: "https://github.com/adafruit/circuitpython/releases/download/4.1.0-rc.1/adafruit-circuitpython-datum_weather-en_US-4.1.0-rc.1.uf2"

@@ -11,13 +11,9 @@ sidebar:
   #- title: "datum-Weather"
   - image: /assets/images/datum-Weather/datum-Weather Top.jpg
     image_alt: "[datum-Weather](/assets/images/datum-Weather/datum-Weather-small.jpg)"
-    nav: "weatherInfo"
-  - title: "More Information"
-    text: "[schematic](/assets/pdfs/datum-Weather.pdf)"    
-    #text: "### datum-Weather"
-  #- title: "firmware"
+    nav: weatherInfo
 
-toc: true
+# toc: true
 ---
 ![alt text](/assets/images/datumLogo-small.png) datum-Weather
 ==  

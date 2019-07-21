@@ -10,7 +10,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>datum, roboRIO, and Java -</title>
-<meta name="description" content="This tutorial shows how to use the datum-Distance sensor with the roboRIO using Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.">
+<meta name="description" content="This tutorial shows how to use the datum-Distance sensor with the roboRIO and Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.">
 
 
 
@@ -21,7 +21,7 @@
 <meta property="og:url" content="http://localhost:4000/RoborioJava/">
 
 
-  <meta property="og:description" content="This tutorial shows how to use the datum-Distance sensor with the roboRIO using Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.">
+  <meta property="og:description" content="This tutorial shows how to use the datum-Distance sensor with the roboRIO and Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.">
 
 
 
@@ -29,7 +29,7 @@
 
 
 
-  <meta property="article:published_time" content="2019-07-14T00:00:00-07:00">
+  <meta property="article:published_time" content="2019-07-20T00:00:00-07:00">
 
 
 
@@ -164,8 +164,8 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="datum, roboRIO, and Java">
-    <meta itemprop="description" content="This tutorial shows how to use the datum-Distance sensor with the roboRIO using Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.">
-    <meta itemprop="datePublished" content="July 14, 2019">
+    <meta itemprop="description" content="This tutorial shows how to use the datum-Distance sensor with the roboRIO and Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.">
+    <meta itemprop="datePublished" content="July 20, 2019">
     
 
     <div class="page__inner-wrap">
@@ -192,19 +192,21 @@
   <li><a href="#code">code</a>
     <ul>
       <li><a href="#imports">imports</a></li>
-      <li><a href="#initialize-the-serial-port">initialize the serial port</a></li>
+      <li><a href="#instantiate-the-port">instantiate the port</a></li>
+      <li><a href="#initialize-the-port">initialize the port</a></li>
       <li><a href="#check-for-new-data-and-parse-the-results">check for new data and parse the results</a></li>
     </ul>
   </li>
+  <li><a href="#deploy-the-code">deploy the code</a></li>
 </ul>
             </nav>
           </aside>
         
-        <p>This tutorial shows how to use the <a href="/datum/datum-Distance">datum-Distance</a> sensor with the roboRIO using Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.</p>
+        <p>This tutorial shows how to use the <a href="/datum/datum-Distance">datum-Distance</a> sensor with the roboRIO and Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.</p>
 
 <h2 id="sensor-configuration">sensor configuration</h2>
 
-<p>Out of the box compact reports are disabled by default.  This is a great format for humans to read but not the best for robots to parse.  An example of what they look like is shown below.</p>
+<p>Out of the box compact reports are disabled by default.  This is a great format for humans to read but not the best for robots to parse.  An example of what this looks like is shown below.  Take note of how the data packet is structured.  JSON uses a<code class="highlighter-rouge">"key":value</code>format.  That becomes important later.</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"timestamp"</span><span class="p">:</span><span class="w"> </span><span class="mf">88.306</span><span class="p">,</span><span class="w">
@@ -217,7 +219,9 @@
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div></div>
-<p>Before plugging the datum sensor into the roboRIO check out the <a href="/getting_started">getting started</a> guide.  This is a great introduction on how you can interact with the sensor directly.  We’re going to start by changing the default report format.  Cut and paste the command below into the serial terminal and hit enter.</p>
+<p>Before plugging the datum sensor into the roboRIO check out the <a href="/getting_started">getting started</a> guide.  This is a great introduction on how you can interact with the sensor directly.  We’re going to start by changing the default report format.</p>
+
+<p>Plug the sensor into your computer, launch your favorite terminal program, and cut and paste the command below into the serial terminal and hit enter.  This command tells the sensor to return all the data on one line.</p>
 
 <blockquote>
   <p>set /config?compactReport=true</p>
@@ -228,19 +232,17 @@
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="s2">"timestamp"</span><span class="p">:</span><span class="mf">712.206</span><span class="p">,</span><span class="s2">"distance"</span><span class="p">:{</span><span class="s2">"time"</span><span class="p">:[</span><span class="mf">712.2</span><span class="p">],</span><span class="s2">"distance"</span><span class="p">:[</span><span class="mi">1783</span><span class="p">],</span><span class="s2">"status"</span><span class="p">:[</span><span class="s2">"RANGE_VALID"</span><span class="p">],</span><span class="s2">"signalRateReturn"</span><span class="p">:[</span><span class="mf">3.445313</span><span class="p">],</span><span class="s2">"ambientRateReturn"</span><span class="p">:[</span><span class="mf">2.71875</span><span class="p">]}}</span><span class="w">
 </span></code></pre></div></div>
 
-<p>This is also a great time to adjust the sample, data, and report rates.  Filters can be changed and units can be adjusted too. All the settings are saved on the sensor itself so you won’t have to reconfigure it when it’s plugged into the roboRIO.  There’s more information about all of these parameters <a href="/datum">here</a> and on the product pages.</p>
+<p>This is also a great time to adjust the sample, data, and report rates.  Filters can be changed and units can be adjusted too. All the settings are saved on the sensor itself so you won’t have to reconfigure it when it’s plugged into the roboRIO.  There’s more information about all of these parameters <a href="/datum">here</a> and on the <a href="/product">product</a> pages.</p>
 
-<p>Now unplug the sensor from the computer and plug it into the roboRIO.  Before jumping into the code there a couple things to do in the build environment first.  They aren’t strictly necessary but it makes parsing the JSON data packets much easier.</p>
+<p>When you’re done configuring the sensor unplug it from the computer and plug it into the roboRIO.</p>
 
 <h2 id="build-environment">build environment</h2>
 
-<p>There</p>
-
-<p>This tutorial will use the</p>
+<p>Before jumping into the code we need to make one change to the build environment first.  We’re going to add the org.json <a href="https://github.com/stleary/JSON-java">JSON-java</a> dependency to help with parsing the incoming data.  It’s not strictly necessary but it makes working with the JSON data packets much easier.  Any parser such as GSON or Jackson could also be used and they will be featured in future tutorials.</p>
 
 <h3 id="update-buildgradle">update build.gradle</h3>
 
-<p>Add the following line to the dependencies section of <code class="highlighter-rouge">build.gradle</code>.</p>
+<p>To add the JSON-java dependency add the following line to the dependencies section of<code class="highlighter-rouge">build.gradle</code>.</p>
 
 <blockquote>
   <p>compile ‘org.json:json:20180813’</p>
@@ -259,20 +261,71 @@
     <span class="n">testCompile</span> <span class="err">'</span><span class="nl">junit:junit:</span><span class="mf">4.12</span><span class="err">'</span>
 <span class="o">}</span>
 </code></pre></div></div>
+<p>That’s it for modifications to the build environment.  Next up is a simple example to show how to get data from the sensor.</p>
+
 <h2 id="code">code</h2>
+
+<p>This example is built on the<code class="highlighter-rouge">TimedRobot</code>example included in the WPILib New Project Creator.  Any of the styles, Timed, Iterative, or Command, will work just fine but for this tutorial creating a new<code class="highlighter-rouge">TimedRobot</code>project will make it easier to follow along.  After you create the project open up<code class="highlighter-rouge">Robot.java</code>.  All the changes we need to make will be inside this file.</p>
+
+<p><img src="/assets/images/posts/WPIlibNewProjectCreator.png" alt="alt text" class="align-center" /></p>
+
+<p>There’s just a few things we need to do to get data from the sensor.  First is importing the functions we’ll be using, then creating and initializing the serial port, and finally reading in any data that’s available and parsing the results.</p>
 
 <h3 id="imports">imports</h3>
 
-<p>Add the following lines at the beginning of the file.</p>
+<p>Add the following lines at the beginning of the file.  This tells the compiler which packages and functions
+we’re going to using.</p>
 
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.json.JSONObject</span><span class="o">;</span>
+<blockquote>
+  <p>org.json.JSONObject;<br />
+org.json.JSONArray;<br />
+org.json.JSONException;</p>
+</blockquote>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="n">frc</span><span class="o">.</span><span class="na">robot</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj.Joystick</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj.PWMVictorSPX</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj.TimedRobot</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj.Timer</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj.drive.DifferentialDrive</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">edu.wpi.first.wpilibj.SerialPort</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">org.json.JSONObject</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.json.JSONArray</span><span class="o">;</span>
 <span class="kn">import</span> <span class="nn">org.json.JSONException</span><span class="o">;</span>
 </code></pre></div></div>
 
-<h3 id="initialize-the-serial-port">initialize the serial port</h3>
+<h3 id="instantiate-the-port">instantiate the port</h3>
 
-<p>Add a line to initialize the serial port.</p>
+<p>Next we need to create the variable to represent the serial port that data will be received on.  Add the line below at the beginning of the class definition.</p>
+
+<blockquote>
+  <p>private SerialPort serialPort0;</p>
+</blockquote>
+
+<p>Your project should look something like this.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Robot</span> <span class="kd">extends</span> <span class="nc">TimedRobot</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">DifferentialDrive</span> <span class="n">m_robotDrive</span>
+      <span class="o">=</span> <span class="k">new</span> <span class="nc">DifferentialDrive</span><span class="o">(</span><span class="k">new</span> <span class="nc">PWMVictorSPX</span><span class="o">(</span><span class="mi">0</span><span class="o">),</span> <span class="k">new</span> <span class="nc">PWMVictorSPX</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Joystick</span> <span class="n">m_stick</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Joystick</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+  <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Timer</span> <span class="n">m_timer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Timer</span><span class="o">();</span>
+  
+  <span class="kd">private</span> <span class="nc">SerialPort</span> <span class="n">serialPort0</span><span class="o">;</span>
+</code></pre></div></div>
+
+<h3 id="initialize-the-port">initialize the port</h3>
+
+<p>We need to initialize the serial port during<code class="highlighter-rouge">robotInit()</code>.  This tells the roboRIO what the name of the 
+serial port is.  Note that it doesn’t matter which physical port the sensor is plugged into.  They just get
+named sequentially as kUSB, kUSB1, and kUSB2 if you have more than one.</p>
+
+<p>Add the line below to the<code class="highlighter-rouge">roboInit()</code> function as shown.</p>
+
+<blockquote>
+  <p>serialPort0 = new SerialPort(921600, SerialPort.Port.kUSB);</p>
+</blockquote>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
  * This function is run when the robot is first started up and should be
@@ -285,7 +338,7 @@
 </code></pre></div></div>
 <h3 id="check-for-new-data-and-parse-the-results">check for new data and parse the results</h3>
 
-<p>Next add the block of code to teleopPeriodic.</p>
+<p>Next add the block of code below to<code class="highlighter-rouge">teleopPeriodic</code>.  This block of code grabs any data that’s been sent to the serial port and stores it in<code class="highlighter-rouge">response</code>.  If there’s data there the response is parsed during the creation of the<code class="highlighter-rouge">responseObject</code>.  Once the response has been successfully parsed we can extract the data from it.  The data is extracted using the keys in the JSON response.  The comments in the code block explain how this is done.</p>
 
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="cm">/**
    * This function is called periodically during teleoperated mode.
@@ -294,40 +347,42 @@
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">teleopPeriodic</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">m_robotDrive</span><span class="o">.</span><span class="na">arcadeDrive</span><span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">);</span>
     
+    <span class="c1">// Get any data that has been trasnmitted from the sensor</span>
     <span class="nc">String</span> <span class="n">response</span> <span class="o">=</span> <span class="n">serialPort0</span><span class="o">.</span><span class="na">readString</span><span class="o">();</span>
 
+    <span class="c1">// If data has been receive the length of the response will be greater than 1.</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">){</span>
       <span class="k">try</span> <span class="o">{</span>
+        <span class="c1">// Data has been received, try parsing the response.</span>
         <span class="nc">JSONObject</span> <span class="n">responseObject</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JSONObject</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
-        <span class="nc">JSONObject</span> <span class="n">distanceObject</span> <span class="o">=</span> <span class="n">responseObject</span><span class="o">.</span><span class="na">getJSONObject</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
-        <span class="nc">JSONArray</span> <span class="n">distanceArray</span> <span class="o">=</span> <span class="n">distanceObject</span><span class="o">.</span><span class="na">getJSONArray</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
-        <span class="kt">double</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">distanceArray</span><span class="o">.</span><span class="na">getDouble</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+        
+        <span class="c1">// Read the timestamp data from the response.</span>
         <span class="kt">double</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="n">responseObject</span><span class="o">.</span><span class="na">getDouble</span><span class="o">(</span><span class="s">"timestamp"</span><span class="o">);</span>
+        
+        <span class="c1">// The distance information is stored in a nested structure.  That has</span>
+        <span class="c1">// to be extracted first, then the data arrays can be extracted next.</span>
+        <span class="nc">JSONObject</span> <span class="n">distanceObject</span> <span class="o">=</span> <span class="n">responseObject</span><span class="o">.</span><span class="na">getJSONObject</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
+        <span class="nc">JSONArray</span> <span class="n">timeArray</span> <span class="o">=</span> <span class="n">distanceObject</span><span class="o">.</span><span class="na">getJSONArray</span><span class="o">(</span><span class="s">"time"</span><span class="o">);</span>
+        <span class="nc">JSONArray</span> <span class="n">distanceArray</span> <span class="o">=</span> <span class="n">distanceObject</span><span class="o">.</span><span class="na">getJSONArray</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
+
+        <span class="c1">// Grab the first values in the arrays.</span>
+        <span class="kt">double</span> <span class="n">time</span> <span class="o">=</span> <span class="n">timeArray</span><span class="o">.</span><span class="na">getDouble</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+        <span class="kt">double</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">distanceArray</span><span class="o">.</span><span class="na">getDouble</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+
+        <span class="c1">// Print out the values.</span>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"timestamp: "</span> <span class="o">+</span> <span class="n">timestamp</span> <span class="o">+</span> <span class="s">"\t"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"distance: "</span> <span class="o">+</span> <span class="n">distance</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"time: "</span> <span class="o">+</span> <span class="n">time</span> <span class="o">+</span> <span class="s">"\t"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"distance: "</span> <span class="o">+</span> <span class="n">distance</span><span class="o">);</span>           
       <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">JSONException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">ex</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
       <span class="o">}</span>
     <span class="o">}</span>
   <span class="o">}</span>
 </code></pre></div></div>
-<p>Now build and deploy the code to the roboRIO.  Open the console</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> timestamp: 101839.806	distance: 1707.0 
- timestamp: 101839.906	distance: 1712.0 
- timestamp: 101840.006	distance: 1710.0 
- timestamp: 101840.106	distance: 1708.0 
- timestamp: 101840.206	distance: 1708.0 
- timestamp: 101840.306	distance: 1711.0 
- timestamp: 101840.406	distance: 1710.0 
- timestamp: 101840.506	distance: 1707.0 
- timestamp: 101840.606	distance: 1708.0 
- timestamp: 101840.706	distance: 1709.0 
- timestamp: 101840.806	distance: 1710.0 
-</code></pre></div></div>
+<p>We’re not doing any checking to make sure the communcation was complete so it’s possible the parsing operation may fail.  If that happens it just creates an exception and we move on to the next transmission from the sensor.  Future tutorials will cover how to make this process more robust.</p>
 
 <details>
-  <summary>Click for full code listing.</summary>
+  <summary>Click here for the full code listing.</summary>
 
   <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*----------------------------------------------------------------------------*/</span>
 <span class="cm">/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */</span>
@@ -361,8 +416,8 @@
       <span class="o">=</span> <span class="k">new</span> <span class="nc">DifferentialDrive</span><span class="o">(</span><span class="k">new</span> <span class="nc">PWMVictorSPX</span><span class="o">(</span><span class="mi">0</span><span class="o">),</span> <span class="k">new</span> <span class="nc">PWMVictorSPX</span><span class="o">(</span><span class="mi">1</span><span class="o">));</span>
   <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Joystick</span> <span class="n">m_stick</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Joystick</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
   <span class="kd">private</span> <span class="kd">final</span> <span class="nc">Timer</span> <span class="n">m_timer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Timer</span><span class="o">();</span>
+  
   <span class="kd">private</span> <span class="nc">SerialPort</span> <span class="n">serialPort0</span><span class="o">;</span>
-  <span class="kd">private</span> <span class="kt">int</span> <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
 
   <span class="cm">/**
    * This function is run when the robot is first started up and should be
@@ -409,17 +464,32 @@
   <span class="kd">public</span> <span class="kt">void</span> <span class="nf">teleopPeriodic</span><span class="o">()</span> <span class="o">{</span>
     <span class="n">m_robotDrive</span><span class="o">.</span><span class="na">arcadeDrive</span><span class="o">(</span><span class="mf">0.0</span><span class="o">,</span> <span class="mf">0.0</span><span class="o">);</span>
     
+    <span class="c1">// Check to see if data has been trasnmitted from the sensor</span>
     <span class="nc">String</span> <span class="n">response</span> <span class="o">=</span> <span class="n">serialPort0</span><span class="o">.</span><span class="na">readString</span><span class="o">();</span>
 
     <span class="k">if</span> <span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="o">){</span>
       <span class="k">try</span> <span class="o">{</span>
+        <span class="c1">// Data has been received, try parsing the response.</span>
         <span class="nc">JSONObject</span> <span class="n">responseObject</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">JSONObject</span><span class="o">(</span><span class="n">response</span><span class="o">);</span>
-        <span class="nc">JSONObject</span> <span class="n">distanceObject</span> <span class="o">=</span> <span class="n">responseObject</span><span class="o">.</span><span class="na">getJSONObject</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
-        <span class="nc">JSONArray</span> <span class="n">distanceArray</span> <span class="o">=</span> <span class="n">distanceObject</span><span class="o">.</span><span class="na">getJSONArray</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
-        <span class="kt">double</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">distanceArray</span><span class="o">.</span><span class="na">getDouble</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+        
+        <span class="c1">// Read the timestamp data from the response.</span>
         <span class="kt">double</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="n">responseObject</span><span class="o">.</span><span class="na">getDouble</span><span class="o">(</span><span class="s">"timestamp"</span><span class="o">);</span>
+        
+        <span class="c1">// The distance information is stored in a nested structure.  That has</span>
+        <span class="c1">// to be extracted first, then the data arrays can be extracted next.</span>
+        <span class="nc">JSONObject</span> <span class="n">distanceObject</span> <span class="o">=</span> <span class="n">responseObject</span><span class="o">.</span><span class="na">getJSONObject</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
+        <span class="nc">JSONArray</span> <span class="n">timeArray</span> <span class="o">=</span> <span class="n">distanceObject</span><span class="o">.</span><span class="na">getJSONArray</span><span class="o">(</span><span class="s">"time"</span><span class="o">);</span>
+        <span class="nc">JSONArray</span> <span class="n">distanceArray</span> <span class="o">=</span> <span class="n">distanceObject</span><span class="o">.</span><span class="na">getJSONArray</span><span class="o">(</span><span class="s">"distance"</span><span class="o">);</span>
+
+        <span class="c1">// Grab the first values in the arrays.</span>
+        <span class="kt">double</span> <span class="n">time</span> <span class="o">=</span> <span class="n">timeArray</span><span class="o">.</span><span class="na">getDouble</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+        <span class="kt">double</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">distanceArray</span><span class="o">.</span><span class="na">getDouble</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
+
+        <span class="c1">// Print out the values.</span>
         <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"timestamp: "</span> <span class="o">+</span> <span class="n">timestamp</span> <span class="o">+</span> <span class="s">"\t"</span><span class="o">);</span>
-        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"distance: "</span> <span class="o">+</span> <span class="n">distance</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">"time: "</span> <span class="o">+</span> <span class="n">time</span> <span class="o">+</span> <span class="s">"\t"</span><span class="o">);</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"distance: "</span> <span class="o">+</span> <span class="n">distance</span><span class="o">);</span>        
+
       <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">JSONException</span> <span class="n">ex</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">ex</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
       <span class="o">}</span>
@@ -436,6 +506,20 @@
 </code></pre></div>  </div>
 </details>
 
+<h2 id="deploy-the-code">deploy the code</h2>
+
+<p>Now build and deploy the code to the roboRIO.  Open the console and you should see data streaming in like the example below.  If not you can always print the full<code class="highlighter-rouge">response</code>to make sure you’re receiving data from the sensor.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> timestamp: 238.706	time: 238.675	distance: 1696.0 
+ timestamp: 238.806	time: 238.775	distance: 1706.0 
+ timestamp: 238.906	time: 238.875	distance: 1708.0 
+ timestamp: 239.006	time: 238.975	distance: 1699.0 
+ timestamp: 239.106	time: 239.075	distance: 1699.0 
+ timestamp: 239.206	time: 239.175	distance: 1694.0 
+ timestamp: 239.306	time: 239.275	distance: 1701.0 
+</code></pre></div></div>
+
+
         
       </section>
 
@@ -445,7 +529,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-07-14T00:00:00-07:00">July 14, 2019</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-07-20T00:00:00-07:00">July 20, 2019</time></p>
         
       </footer>
 
@@ -457,6 +541,8 @@
   <a href="https://twitter.com/intent/tweet?text=datum%2C+roboRIO%2C+and+Java%20http%3A%2F%2Flocalhost%3A4000%2FRoborioJava%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
   <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2FRoborioJava%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.reddit.com/submit?url=http%3A%2F%2Flocalhost%3A4000%2FRoborioJava%2F&title=datum, roboRIO, and Java" class="btn btn--reddit" title="Share on Reddit"><i class="fab fa-fw fa-reddit" aria-hidden="true"></i><span> Reddit</span></a>
 
   <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2FRoborioJava%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>

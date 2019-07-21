@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-07-20T12:00:47-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">J&amp;amp;J Studios</title><subtitle>An amazing website.</subtitle><author><name>J&amp;J Studios</name><email>info@jandjstudios.io</email></author><entry><title type="html">datum, roboRIO, and Java</title><link href="http://localhost:4000/RoborioJava/" rel="alternate" type="text/html" title="datum, roboRIO, and Java" /><published>2019-07-14T00:00:00-07:00</published><updated>2019-07-14T00:00:00-07:00</updated><id>http://localhost:4000/RoborioJava</id><content type="html" xml:base="http://localhost:4000/RoborioJava/">&lt;p&gt;This tutorial shows how to use the &lt;a href=&quot;/datum/datum-Distance&quot;&gt;datum-Distance&lt;/a&gt; sensor with the roboRIO using Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-07-20T17:19:45-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">J&amp;amp;J Studios</title><subtitle>An amazing website.</subtitle><author><name>J&amp;J Studios</name><email>info@jandjstudios.io</email></author><entry><title type="html">datum, roboRIO, and Java</title><link href="http://localhost:4000/RoborioJava/" rel="alternate" type="text/html" title="datum, roboRIO, and Java" /><published>2019-07-20T00:00:00-07:00</published><updated>2019-07-20T00:00:00-07:00</updated><id>http://localhost:4000/RoborioJava</id><content type="html" xml:base="http://localhost:4000/RoborioJava/">&lt;p&gt;This tutorial shows how to use the &lt;a href=&quot;/datum/datum-Distance&quot;&gt;datum-Distance&lt;/a&gt; sensor with the roboRIO and Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.&lt;/p&gt;
 
 &lt;h2 id=&quot;sensor-configuration&quot;&gt;sensor configuration&lt;/h2&gt;
 
-&lt;p&gt;Out of the box compact reports are disabled by default.  This is a great format for humans to read but not the best for robots to parse.  An example of what they look like is shown below.&lt;/p&gt;
+&lt;p&gt;Out of the box compact reports are disabled by default.  This is a great format for humans to read but not the best for robots to parse.  An example of what this looks like is shown below.  Take note of how the data packet is structured.  JSON uses a&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;key&quot;:value&lt;/code&gt;format.  That becomes important later.&lt;/p&gt;
 
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
   &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;timestamp&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;88.306&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
@@ -15,7 +15,9 @@
   &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Before plugging the datum sensor into the roboRIO check out the &lt;a href=&quot;/getting_started&quot;&gt;getting started&lt;/a&gt; guide.  This is a great introduction on how you can interact with the sensor directly.  We’re going to start by changing the default report format.  Cut and paste the command below into the serial terminal and hit enter.&lt;/p&gt;
+&lt;p&gt;Before plugging the datum sensor into the roboRIO check out the &lt;a href=&quot;/getting_started&quot;&gt;getting started&lt;/a&gt; guide.  This is a great introduction on how you can interact with the sensor directly.  We’re going to start by changing the default report format.&lt;/p&gt;
+
+&lt;p&gt;Plug the sensor into your computer, launch your favorite terminal program, and cut and paste the command below into the serial terminal and hit enter.  This command tells the sensor to return all the data on one line.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;set /config?compactReport=true&lt;/p&gt;
@@ -26,19 +28,17 @@
 &lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;timestamp&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;712.206&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;distance&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;time&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;712.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;distance&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1783&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;status&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;RANGE_VALID&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;signalRateReturn&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;3.445313&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;ambientRateReturn&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;2.71875&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]}}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;This is also a great time to adjust the sample, data, and report rates.  Filters can be changed and units can be adjusted too. All the settings are saved on the sensor itself so you won’t have to reconfigure it when it’s plugged into the roboRIO.  There’s more information about all of these parameters &lt;a href=&quot;/datum&quot;&gt;here&lt;/a&gt; and on the product pages.&lt;/p&gt;
+&lt;p&gt;This is also a great time to adjust the sample, data, and report rates.  Filters can be changed and units can be adjusted too. All the settings are saved on the sensor itself so you won’t have to reconfigure it when it’s plugged into the roboRIO.  There’s more information about all of these parameters &lt;a href=&quot;/datum&quot;&gt;here&lt;/a&gt; and on the &lt;a href=&quot;/product&quot;&gt;product&lt;/a&gt; pages.&lt;/p&gt;
 
-&lt;p&gt;Now unplug the sensor from the computer and plug it into the roboRIO.  Before jumping into the code there a couple things to do in the build environment first.  They aren’t strictly necessary but it makes parsing the JSON data packets much easier.&lt;/p&gt;
+&lt;p&gt;When you’re done configuring the sensor unplug it from the computer and plug it into the roboRIO.&lt;/p&gt;
 
 &lt;h2 id=&quot;build-environment&quot;&gt;build environment&lt;/h2&gt;
 
-&lt;p&gt;There&lt;/p&gt;
-
-&lt;p&gt;This tutorial will use the&lt;/p&gt;
+&lt;p&gt;Before jumping into the code we need to make one change to the build environment first.  We’re going to add the org.json &lt;a href=&quot;https://github.com/stleary/JSON-java&quot;&gt;JSON-java&lt;/a&gt; dependency to help with parsing the incoming data.  It’s not strictly necessary but it makes working with the JSON data packets much easier.  Any parser such as GSON or Jackson could also be used and they will be featured in future tutorials.&lt;/p&gt;
 
 &lt;h3 id=&quot;update-buildgradle&quot;&gt;update build.gradle&lt;/h3&gt;
 
-&lt;p&gt;Add the following line to the dependencies section of &lt;code class=&quot;highlighter-rouge&quot;&gt;build.gradle&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To add the JSON-java dependency add the following line to the dependencies section of&lt;code class=&quot;highlighter-rouge&quot;&gt;build.gradle&lt;/code&gt;.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;compile ‘org.json:json:20180813’&lt;/p&gt;
@@ -57,20 +57,71 @@
     &lt;span class=&quot;n&quot;&gt;testCompile&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;junit:junit:&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;4.12&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;'&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;That’s it for modifications to the build environment.  Next up is a simple example to show how to get data from the sensor.&lt;/p&gt;
+
 &lt;h2 id=&quot;code&quot;&gt;code&lt;/h2&gt;
+
+&lt;p&gt;This example is built on the&lt;code class=&quot;highlighter-rouge&quot;&gt;TimedRobot&lt;/code&gt;example included in the WPILib New Project Creator.  Any of the styles, Timed, Iterative, or Command, will work just fine but for this tutorial creating a new&lt;code class=&quot;highlighter-rouge&quot;&gt;TimedRobot&lt;/code&gt;project will make it easier to follow along.  After you create the project open up&lt;code class=&quot;highlighter-rouge&quot;&gt;Robot.java&lt;/code&gt;.  All the changes we need to make will be inside this file.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/WPIlibNewProjectCreator.png&quot; alt=&quot;alt text&quot; class=&quot;align-center&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;There’s just a few things we need to do to get data from the sensor.  First is importing the functions we’ll be using, then creating and initializing the serial port, and finally reading in any data that’s available and parsing the results.&lt;/p&gt;
 
 &lt;h3 id=&quot;imports&quot;&gt;imports&lt;/h3&gt;
 
-&lt;p&gt;Add the following lines at the beginning of the file.&lt;/p&gt;
+&lt;p&gt;Add the following lines at the beginning of the file.  This tells the compiler which packages and functions
+we’re going to using.&lt;/p&gt;
 
-&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.json.JSONObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;org.json.JSONObject;&lt;br /&gt;
+org.json.JSONArray;&lt;br /&gt;
+org.json.JSONException;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;frc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;robot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;edu.wpi.first.wpilibj.Joystick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;edu.wpi.first.wpilibj.PWMVictorSPX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;edu.wpi.first.wpilibj.TimedRobot&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;edu.wpi.first.wpilibj.Timer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;edu.wpi.first.wpilibj.drive.DifferentialDrive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;edu.wpi.first.wpilibj.SerialPort&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.json.JSONObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.json.JSONArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;org.json.JSONException&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;initialize-the-serial-port&quot;&gt;initialize the serial port&lt;/h3&gt;
+&lt;h3 id=&quot;instantiate-the-port&quot;&gt;instantiate the port&lt;/h3&gt;
 
-&lt;p&gt;Add a line to initialize the serial port.&lt;/p&gt;
+&lt;p&gt;Next we need to create the variable to represent the serial port that data will be received on.  Add the line below at the beginning of the class definition.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;private SerialPort serialPort0;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Your project should look something like this.&lt;/p&gt;
+
+&lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Robot&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;TimedRobot&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DifferentialDrive&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m_robotDrive&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DifferentialDrive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PWMVictorSPX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PWMVictorSPX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Joystick&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m_stick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Joystick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Timer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m_timer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Timer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+  
+  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SerialPort&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serialPort0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;initialize-the-port&quot;&gt;initialize the port&lt;/h3&gt;
+
+&lt;p&gt;We need to initialize the serial port during&lt;code class=&quot;highlighter-rouge&quot;&gt;robotInit()&lt;/code&gt;.  This tells the roboRIO what the name of the 
+serial port is.  Note that it doesn’t matter which physical port the sensor is plugged into.  They just get
+named sequentially as kUSB, kUSB1, and kUSB2 if you have more than one.&lt;/p&gt;
+
+&lt;p&gt;Add the line below to the&lt;code class=&quot;highlighter-rouge&quot;&gt;roboInit()&lt;/code&gt; function as shown.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;serialPort0 = new SerialPort(921600, SerialPort.Port.kUSB);&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/**
  * This function is run when the robot is first started up and should be
@@ -83,7 +134,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;h3 id=&quot;check-for-new-data-and-parse-the-results&quot;&gt;check for new data and parse the results&lt;/h3&gt;
 
-&lt;p&gt;Next add the block of code to teleopPeriodic.&lt;/p&gt;
+&lt;p&gt;Next add the block of code below to&lt;code class=&quot;highlighter-rouge&quot;&gt;teleopPeriodic&lt;/code&gt;.  This block of code grabs any data that’s been sent to the serial port and stores it in&lt;code class=&quot;highlighter-rouge&quot;&gt;response&lt;/code&gt;.  If there’s data there the response is parsed during the creation of the&lt;code class=&quot;highlighter-rouge&quot;&gt;responseObject&lt;/code&gt;.  Once the response has been successfully parsed we can extract the data from it.  The data is extracted using the keys in the JSON response.  The comments in the code block explain how this is done.&lt;/p&gt;
 
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;cm&quot;&gt;/**
    * This function is called periodically during teleoperated mode.
@@ -92,40 +143,42 @@
   &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;teleopPeriodic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;m_robotDrive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;arcadeDrive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
     
+    &lt;span class=&quot;c1&quot;&gt;// Get any data that has been trasnmitted from the sensor&lt;/span&gt;
     &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serialPort0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
 
+    &lt;span class=&quot;c1&quot;&gt;// If data has been receive the length of the response will be greater than 1.&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
       &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Data has been received, try parsing the response.&lt;/span&gt;
         &lt;span class=&quot;nc&quot;&gt;JSONObject&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;responseObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;JSONObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;JSONObject&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;responseObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getJSONObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;distance&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;JSONArray&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getJSONArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;distance&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDouble&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        
+        &lt;span class=&quot;c1&quot;&gt;// Read the timestamp data from the response.&lt;/span&gt;
         &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timestamp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;responseObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDouble&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;timestamp&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        
+        &lt;span class=&quot;c1&quot;&gt;// The distance information is stored in a nested structure.  That has&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// to be extracted first, then the data arrays can be extracted next.&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;JSONObject&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;responseObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getJSONObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;distance&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;JSONArray&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getJSONArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;time&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;JSONArray&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getJSONArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;distance&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// Grab the first values in the arrays.&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDouble&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDouble&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// Print out the values.&lt;/span&gt;
         &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;timestamp: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timestamp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;\t&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;distance: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;time: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;\t&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;distance: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;           
       &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;JSONException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
       &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
     &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Now build and deploy the code to the roboRIO.  Open the console&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; timestamp: 101839.806	distance: 1707.0 
- timestamp: 101839.906	distance: 1712.0 
- timestamp: 101840.006	distance: 1710.0 
- timestamp: 101840.106	distance: 1708.0 
- timestamp: 101840.206	distance: 1708.0 
- timestamp: 101840.306	distance: 1711.0 
- timestamp: 101840.406	distance: 1710.0 
- timestamp: 101840.506	distance: 1707.0 
- timestamp: 101840.606	distance: 1708.0 
- timestamp: 101840.706	distance: 1709.0 
- timestamp: 101840.806	distance: 1710.0 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;We’re not doing any checking to make sure the communcation was complete so it’s possible the parsing operation may fail.  If that happens it just creates an exception and we move on to the next transmission from the sensor.  Future tutorials will cover how to make this process more robust.&lt;/p&gt;
 
 &lt;details&gt;
-  &lt;summary&gt;Click for full code listing.&lt;/summary&gt;
+  &lt;summary&gt;Click here for the full code listing.&lt;/summary&gt;
 
   &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/*----------------------------------------------------------------------------*/&lt;/span&gt;
 &lt;span class=&quot;cm&quot;&gt;/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */&lt;/span&gt;
@@ -159,8 +212,8 @@
       &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;DifferentialDrive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PWMVictorSPX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;PWMVictorSPX&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;));&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Joystick&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m_stick&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Joystick&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Timer&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m_timer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Timer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
+  
   &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SerialPort&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serialPort0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 
   &lt;span class=&quot;cm&quot;&gt;/**
    * This function is run when the robot is first started up and should be
@@ -207,17 +260,32 @@
   &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;teleopPeriodic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;m_robotDrive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;arcadeDrive&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
     
+    &lt;span class=&quot;c1&quot;&gt;// Check to see if data has been trasnmitted from the sensor&lt;/span&gt;
     &lt;span class=&quot;nc&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;serialPort0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;readString&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
 
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;){&lt;/span&gt;
       &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Data has been received, try parsing the response.&lt;/span&gt;
         &lt;span class=&quot;nc&quot;&gt;JSONObject&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;responseObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;JSONObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;JSONObject&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;responseObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getJSONObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;distance&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;JSONArray&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getJSONArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;distance&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDouble&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        
+        &lt;span class=&quot;c1&quot;&gt;// Read the timestamp data from the response.&lt;/span&gt;
         &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timestamp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;responseObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDouble&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;timestamp&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        
+        &lt;span class=&quot;c1&quot;&gt;// The distance information is stored in a nested structure.  That has&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// to be extracted first, then the data arrays can be extracted next.&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;JSONObject&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceObject&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;responseObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getJSONObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;distance&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;JSONArray&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getJSONArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;time&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;JSONArray&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceArray&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceObject&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getJSONArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;distance&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// Grab the first values in the arrays.&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timeArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDouble&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distanceArray&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;getDouble&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;c1&quot;&gt;// Print out the values.&lt;/span&gt;
         &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;timestamp: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timestamp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;\t&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
-        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;distance: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;time: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;time&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;\t&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+        &lt;span class=&quot;nc&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;out&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;println&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;distance: &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;distance&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;        
+
       &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;catch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;JSONException&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
         &lt;span class=&quot;n&quot;&gt;ex&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;printStackTrace&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
       &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
@@ -232,7 +300,20 @@
   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
-&lt;/details&gt;</content><author><name>J&amp;J Studios</name><email>info@jandjstudios.io</email></author><summary type="html">This tutorial shows how to use the datum-Distance sensor with the roboRIO using Java. It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.</summary></entry><entry><title type="html">Getting started.</title><link href="http://localhost:4000/GettingStarted/" rel="alternate" type="text/html" title="Getting started." /><published>2019-07-12T00:00:00-07:00</published><updated>2019-07-12T00:00:00-07:00</updated><id>http://localhost:4000/GettingStarted</id><content type="html" xml:base="http://localhost:4000/GettingStarted/">&lt;p&gt;Got one of the brand new datum sensors and not sure where to start?  Check out the &lt;a href=&quot;/getting_started&quot;&gt;getting started guide&lt;/a&gt; for tips on how to get going right away!&lt;/p&gt;</content><author><name>J&amp;J Studios</name><email>info@jandjstudios.io</email></author><summary type="html">Got one of the brand new datum sensors and not sure where to start? Check out the getting started guide for tips on how to get going right away!</summary></entry><entry><title type="html">They’re alive!</title><link href="http://localhost:4000/GroupGets/" rel="alternate" type="text/html" title="They're alive!" /><published>2019-06-16T00:00:00-07:00</published><updated>2019-06-16T00:00:00-07:00</updated><id>http://localhost:4000/GroupGets</id><content type="html" xml:base="http://localhost:4000/GroupGets/">&lt;p&gt;OK, not really.  But the campaigns for the &lt;a href=&quot;https://groupgets.com/campaigns/568-datum-distance&quot;&gt;datum-Distance&lt;/a&gt;, &lt;a href=&quot;https://groupgets.com/campaigns/573-datum-imu&quot;&gt;datum-IMU&lt;/a&gt;, and &lt;a href=&quot;https://groupgets.com/campaigns/574-datum-light&quot;&gt;datum-Light&lt;/a&gt; sensors on GroupGets certainly are!&lt;/p&gt;
+&lt;/details&gt;
+
+&lt;h2 id=&quot;deploy-the-code&quot;&gt;deploy the code&lt;/h2&gt;
+
+&lt;p&gt;Now build and deploy the code to the roboRIO.  Open the console and you should see data streaming in like the example below.  If not you can always print the full&lt;code class=&quot;highlighter-rouge&quot;&gt;response&lt;/code&gt;to make sure you’re receiving data from the sensor.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; timestamp: 238.706	time: 238.675	distance: 1696.0 
+ timestamp: 238.806	time: 238.775	distance: 1706.0 
+ timestamp: 238.906	time: 238.875	distance: 1708.0 
+ timestamp: 239.006	time: 238.975	distance: 1699.0 
+ timestamp: 239.106	time: 239.075	distance: 1699.0 
+ timestamp: 239.206	time: 239.175	distance: 1694.0 
+ timestamp: 239.306	time: 239.275	distance: 1701.0 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>J&amp;J Studios</name><email>info@jandjstudios.io</email></author><summary type="html">This tutorial shows how to use the datum-Distance sensor with the roboRIO and Java. It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.</summary></entry><entry><title type="html">Getting started.</title><link href="http://localhost:4000/GettingStarted/" rel="alternate" type="text/html" title="Getting started." /><published>2019-07-12T00:00:00-07:00</published><updated>2019-07-12T00:00:00-07:00</updated><id>http://localhost:4000/GettingStarted</id><content type="html" xml:base="http://localhost:4000/GettingStarted/">&lt;p&gt;Got one of the brand new datum sensors and not sure where to start?  Check out the &lt;a href=&quot;/getting_started&quot;&gt;getting started guide&lt;/a&gt; for tips on how to get going right away!&lt;/p&gt;</content><author><name>J&amp;J Studios</name><email>info@jandjstudios.io</email></author><summary type="html">Got one of the brand new datum sensors and not sure where to start? Check out the getting started guide for tips on how to get going right away!</summary></entry><entry><title type="html">They’re alive!</title><link href="http://localhost:4000/GroupGets/" rel="alternate" type="text/html" title="They're alive!" /><published>2019-06-16T00:00:00-07:00</published><updated>2019-06-16T00:00:00-07:00</updated><id>http://localhost:4000/GroupGets</id><content type="html" xml:base="http://localhost:4000/GroupGets/">&lt;p&gt;OK, not really.  But the campaigns for the &lt;a href=&quot;https://groupgets.com/campaigns/568-datum-distance&quot;&gt;datum-Distance&lt;/a&gt;, &lt;a href=&quot;https://groupgets.com/campaigns/573-datum-imu&quot;&gt;datum-IMU&lt;/a&gt;, and &lt;a href=&quot;https://groupgets.com/campaigns/574-datum-light&quot;&gt;datum-Light&lt;/a&gt; sensors on GroupGets certainly are!&lt;/p&gt;
 
 &lt;p&gt;Each sensor in the datum product line is meant to bridge the gap between a LEGO® Mindstorms® sensor and a breakout board.  No more breadboard.  No more soldering iron.  Just plug in the USB cable, fire up your favorite terminal program, and watch the data appear before your eyes.&lt;/p&gt;
 
