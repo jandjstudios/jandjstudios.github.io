@@ -8,6 +8,8 @@
 
 .sidebar {
   @include clearfix();
+  margin-bottom: 1em;
+
   @include breakpoint(max-width $large) {
     /* fix z-index order of follow links */
     position: relative;
@@ -19,8 +21,8 @@
   @include breakpoint($large) {
     float: left;
     width: calc(#{$right-sidebar-width-narrow} - 1em);
-//    opacity: 0.75;
-    opacity: 1;
+    /*opacity: 0.75;*/
+    opacity: 1.0;
     -webkit-transition: opacity 0.2s ease-in-out;
     transition: opacity 0.2s ease-in-out;
 
@@ -30,20 +32,15 @@
 
     &.sticky {
       overflow-y: auto;
-      /* calculate height of nav list
-         viewport height - nav height - masthead x-padding
-      */
-      height: calc(100vh - #{$nav-height} - 2em);
+      /* calculate height of nav list */
+      height: calc(
+        100vh - 90px - 2em
+      ); // viewport height - approx. masthead height - main content top margin
     }
   }
 
   @include breakpoint($x-large) {
     width: calc(#{$right-sidebar-width} - 1em);
-  }
-
-  > * {
-    margin-top: 1em;
-    margin-bottom: 1em;
   }
 
   h2,
@@ -63,12 +60,8 @@
   }
 
   img {
-    width: 100%;
-    
-    &.emoji {
-      width: 20px;
-      height: 20px;
-    }
+    /*width: 100%;*/
+    width: 200px;
   }
 }
 
@@ -129,11 +122,11 @@
 
   img {
     max-width: 110px;
-    border-radius: 50%;
+    border-radius: 0%;
 
     @include breakpoint($large) {
       padding: 5px;
-      border: 1px solid $border-color;
+      border: 1px none $border-color;
     }
   }
 }
@@ -243,7 +236,7 @@
     top: -11px;
     left: calc(50% - 10px);
     width: 0;
-    border-style: solid;
+    border-style: none;
     border-width: 0 10px 10px;
     border-color: $border-color transparent;
     z-index: 0;
@@ -260,7 +253,7 @@
     top: -10px;
     left: calc(50% - 10px);
     width: 0;
-    border-style: solid;
+    border-style: none;
     border-width: 0 10px 10px;
     border-color: $background-color transparent;
     z-index: 1;
@@ -316,4 +309,3 @@
     margin-right: initial;
   }
 }
-
