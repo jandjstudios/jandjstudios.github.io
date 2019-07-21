@@ -8,9 +8,12 @@ header:
 layout: single
 
 sidebar:
+  #- title: "datum-IMU"
   - image: /assets/images/datum-IMU/datum-IMU Top.jpg
     image_alt: "datum-IMU"
-  - nav: imuInfo
+    #text: "Designer, Front-End Developer"
+  - title: "More Information"
+    text: "[schematic](/assets/pdfs/datum-IMU.pdf)"
 #toc: true
 ---
 
@@ -117,7 +120,7 @@ The data from the datum-IMU sensor is also encapsulated in a JSON formatted pack
 }
 ```
 
-The datum-IMU sensor can do much more than just collect the data.  The measurement units can be customized to suit your application.  IMU data can be returned in g, m/s^2, dps, gauss, etc.  The datum-IMU sensor does all the calculations for you.
+The datum-IMU sensor can do much more than just collect the data.  The measurement units can be customized to suit your application.  IMU data can be returned in mm, cm, inches, or feet.  The datum-IMU sensor does all the calculations for you.
 
 It can also apply filters such as min, mix, mean, and RMS to the data stream.  This truly makes the datum-IMU sensor a smart sensor that goes far beyond what a breakout board can do.  The datum-IMU sensor is also programmed with an Arduino compatible bootloader allowing full customization of the firmware.
 

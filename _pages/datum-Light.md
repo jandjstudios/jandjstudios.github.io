@@ -8,9 +8,12 @@ header:
 layout: single
 
 sidebar:
+  #- title: "datum-Light"
   - image: /assets/images/datum-Light/datum-Light Top.jpg
     image_alt: "datum-Light"
-  - nav: lightInfo
+    #text: "Designer, Front-End Developer"
+  - title: "More Information"
+    text: "[schematic](/assets/pdfs/datum-Light.pdf)"
 #toc: true
 ---
 
@@ -103,7 +106,7 @@ The data from the datum-Light sensor is also encapsulated in a JSON formatted pa
 ```
 
 
-The datum-Light sensor can do much more than just collect the data.  The measurement units can be customized to suit your application.  light data can be returned in counts or normalized.  The datum-Light sensor does all the calculations for you.
+The datum-Light sensor can do much more than just collect the data.  The measurement units can be customized to suit your application.  light data can be returned in mm, cm, inches, or feet.  The datum-Light sensor does all the calculations for you.
 
 It can also apply filters such as min, mix, mean, and RMS to the data stream.  This truly makes the datum-Light sensor a smart sensor that goes far beyond what a breakout board can do.  The datum-Light sensor is also programmed with an Arduino compatible bootloader allowing full customization of the firmware.
 
