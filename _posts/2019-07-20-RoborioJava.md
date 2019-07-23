@@ -44,9 +44,15 @@ This is also a great time to adjust the sample, data, and report rates.  Filters
 
 When you're done configuring the sensor unplug it from the computer and plug it into the roboRIO.  
 
+## project template
+
+This example is built on the`TimedRobot`example included in the WPILib New Project Creator.  Any of the styles, Timed, Iterative, or Command, will work just fine but for this tutorial creating a new`TimedRobot`project will make it easier to follow along.  After you create the project open up`build.gradle`and `Robot.java`.  All the changes we need to make will be inside these files.
+
+![alt text](/assets/images/posts/WPIlibNewProjectCreator.png){: .align-center}
+
 ## build environment
 
-Before jumping into the code we need to make one change to the build environment first.  We're going to add the org.json [JSON-java](https://github.com/stleary/JSON-java) dependency to help with parsing the incoming data.  It's not strictly necessary but it makes working with the JSON data packets much easier.  Any parser such as GSON or Jackson could also be used and they will be featured in future tutorials.
+Before jumping into the code we need to make one change to the build environment.  We're going to add the org.json [JSON-java](https://github.com/stleary/JSON-java) dependency to help with parsing the incoming data.  It's not strictly necessary but it makes working with the JSON data packets much easier.  Any parser such as GSON or Jackson could also be used and they will be featured in future tutorials.
 
 ### update build.gradle
 
@@ -72,17 +78,13 @@ That's it for modifications to the build environment.  Next up is a simple examp
 
 ## code
 
-This example is built on the`TimedRobot`example included in the WPILib New Project Creator.  Any of the styles, Timed, Iterative, or Command, will work just fine but for this tutorial creating a new`TimedRobot`project will make it easier to follow along.  After you create the project open up`Robot.java`.  All the changes we need to make will be inside this file.
-
-![alt text](/assets/images/posts/WPIlibNewProjectCreator.png){: .align-center}
-
 There's just a few things we need to do to get data from the sensor.  First is importing the functions we'll be using, then creating and initializing the serial port, and finally reading in any data that's available and parsing the results.
 
 
 ### imports
 
 Add the following lines at the beginning of the file.  This tells the compiler which packages and functions
-we're going to using.
+we're going to be using.
 
 > org.json.JSONObject;  
 > org.json.JSONArray;  

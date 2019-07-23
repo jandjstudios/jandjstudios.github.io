@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-07-21T15:38:47-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">J&amp;amp;J Studios</title><subtitle>An amazing website.</subtitle><author><name>J&amp;J Studios</name><email>info@jandjstudios.io</email></author><entry><title type="html">datum, roboRIO, and Java</title><link href="http://localhost:4000/RoborioJava/" rel="alternate" type="text/html" title="datum, roboRIO, and Java" /><published>2019-07-20T00:00:00-07:00</published><updated>2019-07-20T00:00:00-07:00</updated><id>http://localhost:4000/RoborioJava</id><content type="html" xml:base="http://localhost:4000/RoborioJava/">&lt;p&gt;This tutorial shows how to use the &lt;a href=&quot;/datum-Distance&quot;&gt;datum-Distance&lt;/a&gt; sensor with the roboRIO and Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-07-22T17:46:44-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">J&amp;amp;J Studios</title><subtitle>An amazing website.</subtitle><author><name>J&amp;J Studios</name><email>info@jandjstudios.io</email></author><entry><title type="html">datum, roboRIO, and Java</title><link href="http://localhost:4000/RoborioJava/" rel="alternate" type="text/html" title="datum, roboRIO, and Java" /><published>2019-07-20T00:00:00-07:00</published><updated>2019-07-20T00:00:00-07:00</updated><id>http://localhost:4000/RoborioJava</id><content type="html" xml:base="http://localhost:4000/RoborioJava/">&lt;p&gt;This tutorial shows how to use the &lt;a href=&quot;/datum-Distance&quot;&gt;datum-Distance&lt;/a&gt; sensor with the roboRIO and Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor.&lt;/p&gt;
 
 &lt;h2 id=&quot;sensor-configuration&quot;&gt;sensor configuration&lt;/h2&gt;
 
@@ -32,9 +32,15 @@
 
 &lt;p&gt;When you’re done configuring the sensor unplug it from the computer and plug it into the roboRIO.&lt;/p&gt;
 
+&lt;h2 id=&quot;project-template&quot;&gt;project template&lt;/h2&gt;
+
+&lt;p&gt;This example is built on the&lt;code class=&quot;highlighter-rouge&quot;&gt;TimedRobot&lt;/code&gt;example included in the WPILib New Project Creator.  Any of the styles, Timed, Iterative, or Command, will work just fine but for this tutorial creating a new&lt;code class=&quot;highlighter-rouge&quot;&gt;TimedRobot&lt;/code&gt;project will make it easier to follow along.  After you create the project open up&lt;code class=&quot;highlighter-rouge&quot;&gt;build.gradle&lt;/code&gt;and &lt;code class=&quot;highlighter-rouge&quot;&gt;Robot.java&lt;/code&gt;.  All the changes we need to make will be inside these files.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/WPIlibNewProjectCreator.png&quot; alt=&quot;alt text&quot; class=&quot;align-center&quot; /&gt;&lt;/p&gt;
+
 &lt;h2 id=&quot;build-environment&quot;&gt;build environment&lt;/h2&gt;
 
-&lt;p&gt;Before jumping into the code we need to make one change to the build environment first.  We’re going to add the org.json &lt;a href=&quot;https://github.com/stleary/JSON-java&quot;&gt;JSON-java&lt;/a&gt; dependency to help with parsing the incoming data.  It’s not strictly necessary but it makes working with the JSON data packets much easier.  Any parser such as GSON or Jackson could also be used and they will be featured in future tutorials.&lt;/p&gt;
+&lt;p&gt;Before jumping into the code we need to make one change to the build environment.  We’re going to add the org.json &lt;a href=&quot;https://github.com/stleary/JSON-java&quot;&gt;JSON-java&lt;/a&gt; dependency to help with parsing the incoming data.  It’s not strictly necessary but it makes working with the JSON data packets much easier.  Any parser such as GSON or Jackson could also be used and they will be featured in future tutorials.&lt;/p&gt;
 
 &lt;h3 id=&quot;update-buildgradle&quot;&gt;update build.gradle&lt;/h3&gt;
 
@@ -61,16 +67,12 @@
 
 &lt;h2 id=&quot;code&quot;&gt;code&lt;/h2&gt;
 
-&lt;p&gt;This example is built on the&lt;code class=&quot;highlighter-rouge&quot;&gt;TimedRobot&lt;/code&gt;example included in the WPILib New Project Creator.  Any of the styles, Timed, Iterative, or Command, will work just fine but for this tutorial creating a new&lt;code class=&quot;highlighter-rouge&quot;&gt;TimedRobot&lt;/code&gt;project will make it easier to follow along.  After you create the project open up&lt;code class=&quot;highlighter-rouge&quot;&gt;Robot.java&lt;/code&gt;.  All the changes we need to make will be inside this file.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/images/posts/WPIlibNewProjectCreator.png&quot; alt=&quot;alt text&quot; class=&quot;align-center&quot; /&gt;&lt;/p&gt;
-
 &lt;p&gt;There’s just a few things we need to do to get data from the sensor.  First is importing the functions we’ll be using, then creating and initializing the serial port, and finally reading in any data that’s available and parsing the results.&lt;/p&gt;
 
 &lt;h3 id=&quot;imports&quot;&gt;imports&lt;/h3&gt;
 
 &lt;p&gt;Add the following lines at the beginning of the file.  This tells the compiler which packages and functions
-we’re going to using.&lt;/p&gt;
+we’re going to be using.&lt;/p&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;org.json.JSONObject;&lt;br /&gt;
