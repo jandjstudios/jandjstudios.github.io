@@ -5,7 +5,7 @@ var store = [{
         "url": "http://localhost:4000/GroupGets/",
         "teaser":null},{
         "title": "Getting started.",
-        "excerpt":"Got one of the brand new datum sensors and not sure where to start?  Check out the getting started guide for tips on how to get going right away!   ","categories": [],
+        "excerpt":"Got one of the brand new datum sensors and not sure where to start?  Check out the getting started guide for tips on how to get going right away!            Please enable JavaScript to view the comments. ”  ","categories": [],
         "tags": [],
         "url": "http://localhost:4000/GettingStarted/",
         "teaser":null},{

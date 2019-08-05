@@ -2,12 +2,12 @@
 title: datum, roboRIO, and Java
 layout: single
 read_time: false
-comments: null
 sidebar: false
 author_profile: false
 toc: true
 toc_label: "contents"
 toc_sticky: true
+comments: true
 ---
 
 This tutorial shows how to use the [datum-Distance](/datum-Distance) sensor with the roboRIO and Java.  It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor. 

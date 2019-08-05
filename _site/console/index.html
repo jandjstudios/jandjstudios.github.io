@@ -1,0 +1,476 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.5 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>  </title>
+<meta name="description" content="J&amp;J Studios LLC">
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="">
+<meta property="og:title" content="">
+<meta property="og:url" content="http://localhost:4000/console/">
+
+
+  <meta property="og:description" content="J&amp;J Studios LLC">
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/console/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "J&J Studios",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single wide">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/J&J%20Studios%20LLC%20Logo-1211x1211.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/blog/" >blog</a>
+            </li><li class="masthead__menu-item">
+              <a href="/getting_started/" >getting started</a>
+            </li><li class="masthead__menu-item">
+              <a href="/products/" >products</a>
+            </li><li class="masthead__menu-item">
+              <a href="/datum/" >datum</a>
+            </li><li class="masthead__menu-item">
+              <a href="/about/" >about</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="">
+    <meta itemprop="description" content="J&amp;J Studios LLC">
+    
+    <meta itemprop="dateModified" content="August 04, 2019">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <html>
+  <head>
+    <title>TinyUSB</title>
+    <script>
+        var serial = {};
+
+        (function() {
+        'use strict';
+
+        serial.getPorts = function() {
+            return navigator.usb.getDevices().then(devices => {
+            return devices.map(device => new serial.Port(device));
+            });
+        };
+
+        serial.requestPort = function() {
+            const filters = [
+            { 'vendorId': 0x239A }, // Adafruit boards
+            { 'vendorId': 0xcafe }, // TinyUSB example
+            { 'vendorId': 0x04D8 }, // J&J Studios example
+            ];
+            return navigator.usb.requestDevice({ 'filters': filters }).then(
+            device => new serial.Port(device)
+            );
+        }
+
+        serial.Port = function(device) {
+            this.device_ = device;
+            this.interfaceNumber = 0;
+            this.endpointIn = 0;
+            this.endpointOut = 0;
+        };
+
+        serial.Port.prototype.connect = function() {
+            let readLoop = () => {
+            this.device_.transferIn(this.endpointIn, 64).then(result => {
+                this.onReceive(result.data);
+                readLoop();
+            }, error => {
+                this.onReceiveError(error);
+            });
+            };
+
+            return this.device_.open()
+                .then(() => {
+                if (this.device_.configuration === null) {
+                    return this.device_.selectConfiguration(1);
+                }
+                })
+                .then(() => {
+                var interfaces = this.device_.configuration.interfaces;
+                interfaces.forEach(element => {
+                    element.alternates.forEach(elementalt => {
+                    if (elementalt.interfaceClass==0xFF) {
+                        this.interfaceNumber = element.interfaceNumber;
+                        elementalt.endpoints.forEach(elementendpoint => {
+                        if (elementendpoint.direction == "out") {
+                            this.endpointOut = elementendpoint.endpointNumber;
+                        }
+                        if (elementendpoint.direction=="in") {
+                            this.endpointIn =elementendpoint.endpointNumber;
+                        }
+                        })
+                    }
+                    })
+                })
+                })
+                .then(() => this.device_.claimInterface(this.interfaceNumber))
+                .then(() => this.device_.selectAlternateInterface(this.interfaceNumber, 0))
+                .then(() => this.device_.controlTransferOut({
+                    'requestType': 'class',
+                    'recipient': 'interface',
+                    'request': 0x22,
+                    'value': 0x01,
+                    'index': this.interfaceNumber}))
+                .then(() => {
+                readLoop();
+                });
+        };
+
+        serial.Port.prototype.disconnect = function() {
+            return this.device_.controlTransferOut({
+                    'requestType': 'class',
+                    'recipient': 'interface',
+                    'request': 0x22,
+                    'value': 0x00,
+                    'index': this.interfaceNumber})
+                .then(() => this.device_.close());
+        };
+
+        serial.Port.prototype.send = function(data) {
+            return this.device_.transferOut(this.endpointOut, data);
+        };
+        })();
+    
+    </script>
+    <script>
+        (function() {
+        'use strict';
+
+        document.addEventListener('DOMContentLoaded', event => {
+            let connectButton = document.querySelector("#connect");
+            let statusDisplay = document.querySelector('#status');
+            let port;
+
+            function addLine(linesId, text) {
+            var senderLine = document.createElement("div");
+            senderLine.className = 'line';
+            var textnode = document.createTextNode(text);
+            senderLine.appendChild(textnode);
+            document.getElementById(linesId).appendChild(senderLine);
+            return senderLine;
+            }
+
+            let currentReceiverLine;
+
+            function appendLine(linesId, text) {
+            if (currentReceiverLine) {
+                currentReceiverLine.innerHTML =  currentReceiverLine.innerHTML + text;
+            } else {
+                currentReceiverLine = addLine(linesId, text);
+            }
+            }
+
+            function connect() {
+            port.connect().then(() => {
+                statusDisplay.textContent = '';
+                connectButton.textContent = 'Disconnect';
+
+                port.onReceive = data => {
+                let textDecoder = new TextDecoder();
+                console.log(textDecoder.decode(data));
+                if (data.getInt8() === 13) {
+                    currentReceiverLine = null;
+                } else {
+                    appendLine('receiver_lines', textDecoder.decode(data));
+                }
+                };
+                port.onReceiveError = error => {
+                console.error(error);
+                };
+            }, error => {
+                statusDisplay.textContent = error;
+            });
+            }
+
+            connectButton.addEventListener('click', function() {
+            if (port) {
+                port.disconnect();
+                connectButton.textContent = 'Connect';
+                statusDisplay.textContent = '';
+                port = null;
+            } else {
+                serial.requestPort().then(selectedPort => {
+                port = selectedPort;
+                connect();
+                }).catch(error => {
+                statusDisplay.textContent = error;
+                });
+            }
+            });
+
+            serial.getPorts().then(ports => {
+            if (ports.length === 0) {
+                statusDisplay.textContent = 'No device found.';
+            } else {
+                statusDisplay.textContent = 'Connecting...';
+                port = ports[0];
+                connect();
+            }
+            });
+
+
+            let commandLine = document.getElementById("command_line");
+
+            commandLine.addEventListener("keypress", function(event) {
+            if (event.keyCode === 13) {
+                if (commandLine.value.length > 0) {
+                addLine('sender_lines', commandLine.value);
+                commandLine.value = '';
+                }
+            }
+
+            port.send(new TextEncoder('utf-8').encode(String.fromCharCode(event.which || event.keyCode)));
+            });
+        });
+        })();
+    
+    </script>
+  </head>
+  <body>
+    <div class="main-content">
+      <h1>datum TinyUSB - WebUSB Serial Example</h1>
+      <div class="connect-container">
+        <button id="connect" class="button black">Connect</button>
+        <span id="status"></span>
+      </div>
+      <div class="container">
+        <div class="sender">
+          <div class="lines-header">Sender</div>
+          <div class="lines-body">
+            <div id="sender_lines" class="lines"></div>
+            <input id="command_line" class="command-line" placeholder="Start typing ...." />
+          </div>
+        </div>
+        <div class="receiver">
+          <div class="lines-header">Receiver</div>
+          <div class="lines-body">
+            <div id="receiver_lines" class="lines"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-08-04">August 04, 2019</time></p>
+        
+      </footer>
+
+      
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 J&J Studios. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>
