@@ -2,6 +2,8 @@
 main:
   - title: "blog"
     url: /blog/
+  - title: "console"
+    url: /console/
   - title: "getting started"
     url: /getting_started/
   - title: "products"

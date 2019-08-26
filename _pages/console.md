@@ -202,7 +202,7 @@ author_profile: false
   </head>
   <body>
     <div class="main-content">
-      <h1>datum TinyUSB - WebUSB Serial Example</h1>
+      <h1>datum WebUSB Serial Console</h1>
       <div class="connect-container">
         <button id="connect" class="button black">Connect</button>
         <span id="status"></span>

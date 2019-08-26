@@ -13,4 +13,9 @@ var store = [{
         "excerpt":"This tutorial shows how to use the datum-Distance sensor with the roboRIO and Java. It covers configuring the sensor, setting up the build environment, and how to get the data from the sensor. sensor configuration Out of the box compact reports are disabled by default. This is a great format...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/RoborioJava/",
+        "teaser":null},{
+        "title": "WebUSB and the datum sensors!",
+        "excerpt":"Adafruit recently announced that they added WebUSB support to the TinyUSB core. Well that USB core is now at the heart of all datum sensors! WebUSB is the perfect match for the JSON encapsulated data packets returned by each of the datum sensors. No more messing around with baud rates,...","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/WebUSB-datum-announcement/",
         "teaser":null}]
