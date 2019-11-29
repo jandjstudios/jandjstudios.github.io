@@ -14,7 +14,7 @@ sidebar:
 #toc: true
 ---
 
-# Available now on [GroupGets](https://groupgets.com/campaigns/573-datum-imu)! 
+# Available now on [GroupGets](https://store.groupgets.com/collections/datum-sensors/products/datum-imu)! 
 {: .text-center}
 
 ![alt text](/assets/images/datumLogo-small.png) datum-IMU

@@ -14,7 +14,7 @@ sidebar:
 #toc: true
 ---
 
-# Available now on [GroupGets](https://groupgets.com/campaigns/574-datum-light)! 
+# Available now on [GroupGets](https://store.groupgets.com/collections/datum-sensors/products/datum-light)! 
 {: .text-center}
 
 ![alt text](/assets/images/datumLogo-small.png) datum-Light

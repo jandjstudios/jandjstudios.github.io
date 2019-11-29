@@ -29,7 +29,7 @@ feature_row1:
     url: /assets/images/datum-Distance/datum-Distance Bottom.jpg
 ---
 
-# Available now on [GroupGets](https://groupgets.com/campaigns/568-datum-distance)! 
+# Available now on [GroupGets](https://store.groupgets.com/collections/datum-sensors/products/datum-distance)!
 {: .text-center}
 
 ![alt text](/assets/images/datumLogo-small.png) datum-Distance
