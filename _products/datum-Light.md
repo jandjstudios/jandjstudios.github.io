@@ -29,7 +29,7 @@ sidebar:
   - Maximum Report Rate: 100 Hz
   - Sensor Type: USB
   - Dimensions: 1.0" x 1.75" (25.4 mm x 44.4 mm)
-  - Mounting holes: 4 x 4-40 holes, 0.75" x 1.5" on center (19.05 mm x 38.1 mm)
+  - Mounting Holes: 4 x 4-40 holes, 0.75" x 1.5" on center (19.05 mm x 38.1 mm)
   
 ---
 

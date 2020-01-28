@@ -15,17 +15,17 @@ var store = [{
         "url": "http://localhost:4000/RoborioJava/",
         "teaser":null},{
         "title": "",
-        "excerpt":"Available now on GroupGets! datum-Distance specifications Measurement Range: 0.04 m - 3.6 m Field of View: 27° Laser Type: 940 nm (IR) Class 1 Maximum Report Rate: 50 Hz Sensor Type: USB Dimensions: 1.0” x 1.75” (25.4 mm x 44.4 mm) Mounting holes: 4 x 4-40 holes, 0.75” x 1.5”...","categories": [],
+        "excerpt":"Available now on GroupGets! datum-Distance specifications Measurement Range: 0.04 m - 3.6 m Field of View: 27° Laser Type: 940 nm (IR) Class 1 Maximum Report Rate: 50 Hz Sensor Type: USB Dimensions: 1.0” x 1.75” (25.4 mm x 44.4 mm) Mounting Holes: 4 x 4-40 holes, 0.75” x 1.5”...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/datum/datum-Distance/",
         "teaser":null},{
         "title": "",
-        "excerpt":"Available now on GroupGets! datum-IMU specifications Full Scale Linear Acceleration: ±2/±4/±8/±16 g Full Scale Angular Rate: ±245/±500/±2000 dps Full Scale Magnetic Field: ±4/±8/±12/±16 gauss Maximum Report Rate: 100 Hz Sensor Type: USB Dimensions: 1.0” x 1.75” (25.4 mm x 44.4 mm) Mounting holes: 4 x 4-40 holes, 0.75” x 1.5”...","categories": [],
+        "excerpt":"Available now on GroupGets! datum-IMU specifications Full Scale Linear Acceleration: ±2/±4/±8/±16 g Full Scale Angular Rate: ±245/±500/±2000 dps Full Scale Magnetic Field: ±4/±8/±12/±16 gauss Maximum Report Rate: 100 Hz Sensor Type: USB Dimensions: 1.0” x 1.75” (25.4 mm x 44.4 mm) Mounting Holes: 4 x 4-40 holes, 0.75” x 1.5”...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/datum/datum-IMU/",
         "teaser":null},{
         "title": "",
-        "excerpt":"Available now on GroupGets! datum-Light specifications Ambient Light Sensing RGB Color Sensing Proximity Sensing Maximum Report Rate: 100 Hz Sensor Type: USB Dimensions: 1.0” x 1.75” (25.4 mm x 44.4 mm) Mounting holes: 4 x 4-40 holes, 0.75” x 1.5” on center (19.05 mm x 38.1 mm) features Atmel SAMD21G18...","categories": [],
+        "excerpt":"Available now on GroupGets! datum-Light specifications Ambient Light Sensing RGB Color Sensing Proximity Sensing Maximum Report Rate: 100 Hz Sensor Type: USB Dimensions: 1.0” x 1.75” (25.4 mm x 44.4 mm) Mounting Holes: 4 x 4-40 holes, 0.75” x 1.5” on center (19.05 mm x 38.1 mm) features Atmel SAMD21G18...","categories": [],
         "tags": [],
         "url": "http://localhost:4000/datum/datum-Light/",
         "teaser":null},{
