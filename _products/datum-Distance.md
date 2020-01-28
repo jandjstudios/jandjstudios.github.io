@@ -1,5 +1,5 @@
 ---
-permalink: /datum-Distance/
+permalink: /datum/datum-Distance/
 title: ""
 #excerpt: "Foo Bar design system including logo mark, website design, and branding applications."
 header:
@@ -35,17 +35,19 @@ feature_row1:
 ![alt text](/assets/images/datumLogo-small.png) datum-Distance
 ==
 
-URI command syntax. JSON encapsulated data packets.  The ideal distance sensor for your next IoT or robotics project.
-
 ---
-- **datum**
-   1. a piece of information
-   1. a fixed starting point of a scale or operation
 
-- **distance**
-   1. an amount of space between two things or people
-
+**specifications**
+  - Measurement Range: 0.04 m - 3.6 m
+  - Field of View: 27°
+  - Laser Type: 940 nm (IR) Class 1
+  - Maximum Report Rate: 50 Hz
+  - Sensor Type: USB
+  - Dimensions: 1.0" x 1.75" (25.4 mm x 44.4 mm)
+  - Mounting holes: 4 x 4-40 holes, 0.75" x 1.5" on center (19.05 mm x 38.1 mm)
+  
 ---
+
 **features**
   - Atmel SAMD21G18 microcontroller
   - ST Microelectronics VL53LX1 distance sensor
@@ -54,8 +56,15 @@ URI command syntax. JSON encapsulated data packets.  The ideal distance sensor f
   - JSON formatted data packets
   - Globally unique 64 bit UUID
   - UF2 Bootloader
-  - Mounting holes in all four corners
-  - 1.0" x 1.75" (25.4 cm x 44.4 cm)
+
+---
+
+- **datum**
+   1. a piece of information
+   1. a fixed starting point of a scale or operation
+
+- **distance**
+   1. an amount of space between two things or people
 
 ---
 

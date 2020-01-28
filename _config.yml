@@ -284,6 +284,11 @@ compress_html:
   ignore:
     envs: development
 
+collections:
+  datum:
+    output: true
+  products:
+    output: true
 
 # Defaults
 defaults:

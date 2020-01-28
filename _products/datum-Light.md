@@ -1,5 +1,5 @@
 ---
-permalink: /datum-Light/
+permalink: /datum/datum-Light/
 title: ""
 excerpt: "Foo Bar design system including logo mark, website design, and branding applications."
 header:
@@ -19,9 +19,28 @@ sidebar:
 
 ![alt text](/assets/images/datumLogo-small.png) datum-Light
 ==  
+---
 
-URI command syntax. JSON encapsulated data packets. 
-The ideal light sensor for your next IoT or robotics project.
+**specifications**
+
+  - Ambient Light Sensing
+  - RGB Color Sensing
+  - Proximity Sensing
+  - Maximum Report Rate: 100 Hz
+  - Sensor Type: USB
+  - Dimensions: 1.0" x 1.75" (25.4 mm x 44.4 mm)
+  - Mounting holes: 4 x 4-40 holes, 0.75" x 1.5" on center (19.05 mm x 38.1 mm)
+  
+---
+
+**features**
+  - Atmel SAMD21G18 microcontroller
+  - Broadcom APDS-9960 light sensor
+  - Onboard EEPROM settings storage
+  - URI style command interface
+  - JSON formatted data packets
+  - Globally unique 64 bit UUID
+  - UF2 Bootloader
 
 ---
 
@@ -31,18 +50,6 @@ The ideal light sensor for your next IoT or robotics project.
 
 - **light**
    1. the natural agent that stimulates sight and makes things visible
-
----
-## features
-  - Atmel SAMD21G18 microcontroller
-  - Broadcom APDS-9960 light sensor
-  - Onboard EEPROM settings storage
-  - URI style command interface
-  - JSON formatted data packets
-  - Globally unique 64 bit UUID
-  - UF2 Bootloader
-  - Mounting holes in all four corners
-  - 1.0" x 1.75" (25.4 cm x 44.4 cm)
 
 ---
 

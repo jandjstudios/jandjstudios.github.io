@@ -1,5 +1,5 @@
 ---
-permalink: /datum-Weather/
+permalink: /datum/datum-Weather/
 title: ""
 #excerpt: "Foo Bar design system including logo mark, website design, and branding applications."
 header:

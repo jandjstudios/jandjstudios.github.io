@@ -1,5 +1,5 @@
 ---
-permalink: /datum-IMU/
+permalink: /datum/datum-IMU/
 title: ""
 #excerpt: "Foo Bar design system including logo mark, website design, and branding applications."
 header:
@@ -19,9 +19,28 @@ sidebar:
 
 ![alt text](/assets/images/datumLogo-small.png) datum-IMU
 ==  
+---
 
-URI command syntax. JSON encapsulated data packets. 
-The ideal IMU for your next IoT or robotics project.
+**specifications**
+
+  - Full Scale Linear Acceleration: ±2/±4/±8/±16 g 
+  - Full Scale Angular Rate: ±245/±500/±2000 dps
+  - Full Scale Magnetic Field: ±4/±8/±12/±16 gauss
+  - Maximum Report Rate: 100 Hz
+  - Sensor Type: USB
+  - Dimensions: 1.0" x 1.75" (25.4 mm x 44.4 mm)
+  - Mounting holes: 4 x 4-40 holes, 0.75" x 1.5" on center (19.05 mm x 38.1 mm)
+  
+---
+
+**features**
+  - Atmel SAMD21G18 microcontroller
+  - ST Microelectronics LSM9DS1 iNEMO intertial module
+  - Onboard EEPROM settings storage
+  - URI style command interface
+  - JSON formatted data packets
+  - Globally unique 64 bit UUID
+  - UF2 Bootloader
 
 ---
 
@@ -31,19 +50,6 @@ The ideal IMU for your next IoT or robotics project.
 
 - **inertia**
    1. a property of matter by which it continues in its existing state of rest or uniform motion in a straight line, unless that state is changed by an external force
-
----
-**features**
-
-  - Atmel SAMD21G18 microcontroller
-  - ST Microelectronics LSM9DS1 IMU
-  - Onboard EEPROM settings storage
-  - URI style command interface
-  - JSON formatted data packets
-  - Globally unique 64 bit UUID
-  - UF2 Bootloader
-  - Mounting holes in all four corners
-  - 1.0" x 1.75" (25.4 cm x 44.4 cm)
 
 ---
 
